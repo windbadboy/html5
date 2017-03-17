@@ -1,0 +1,28 @@
+@charset utf-8;
+
+
+div {
+	width: 200px;
+	height: 200px;
+}
+#a {
+
+	background-color: red;
+
+	float: left;
+
+}
+#b {
+
+	background-color: green;
+		/*float: left;*/
+	clear: both;
+
+
+}
+
+#c {
+height: 220px;
+	background-color: yellow;
+
+}
