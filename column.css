@@ -489,3 +489,32 @@
 	border: none;
 
 }
+
+#container  .scenery figure {
+	border: 1px solid #ddd;
+	display: inline-block;
+	padding: 4px;
+	border-radius: 4px;
+	margin: 15px 12px;
+	width: 380px;
+	text-align: left;
+	position: relative;
+}
+
+#container  .scenery figcaption {
+	text-align: center;
+	padding: 5px 0 0 0;
+}
+
+#container .about p {
+	line-height: 2;
+	margin: 20px 0;
+
+}
+
+#container .about address {
+	line-height: 1.6;
+	margin: 20px 0;
+	font-style: normal;
+
+}
