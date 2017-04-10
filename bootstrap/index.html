@@ -52,27 +52,119 @@
 	<a href="#myCarousel" data-slide="prev" class="carousel-control left"><span class="glyphicon glyphicon-chevron-left"></span></a>
 	<a href="#myCarousel" data-slide="next" class="carousel-control right"><span class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
+<div class="tab1">
+	<div class="container">
+		<h2 class="tab-h2">
+			重庆市第十三人民医院简介
+		</h2>
+		<p class="tab-p">我院成立于1953年，重庆市首家国家二甲综合医院</p>
+		<div class="row">
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<img src="img/tab1-1.png" class="media-object">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">医疗指导</h4>
+						<p>...</p>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<img src="img/tab1-2.png" class="media-object">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">病友圈</h4>
+						<p>...</p>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<img src="img/tab1-3.png" class="media-object">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">自助查询</h4>
+						<p>...</p>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<img src="img/tab1-4.png" class="media-object">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">医院活动</h4>
+						<p>...</p>
+						<p>...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="tab2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3>强大的医疗资源</h3>
+				<p>照顾细致的护士与医术精湛的医生为您服务。</p>
+			</div>
+			<div class="col-md-6">
+				<img src="img/tab2.png" class="img-responsive">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="tab3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<img src="img/tab3.png" class="img-responsive">
+			</div>
+			<div class="col-md-6">
 
-
+				<h3>先进的管理体系</h3>
+				<p>链式质控及5S精致管理，规范、先进、效率。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<footer id="footer">
+	<div class="container">
+		<p>联系 | 关于 | 打赏</p>
+		<p>Copyright © 重庆市第十三人民医院 版权所有</p>
+	</div>
+</footer>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// $(function() {
+$(function() {
 
-// 	//设置轮播
-// 	$('#myCarousel').carousel({
-// 		interval : 4000,
-// 	});
+	//设置轮播
+	$('#myCarousel').carousel({
+		interval : 4000,
+	});
 // 	//设置垂直居中
 // 	$('.carousel-control').css('line-height',$('.carousel-inner img').height() + 'px');
 // 	$(window).resize(function(){
-// 		var $height = $('.carousel-inner img').eq(0).height() || 
-// 		$('.carousel-inner img').eq(1).height() ||
-// 		$('.carousel-inner img').eq(2).height();
+		var $height = $('.carousel-inner img').eq(0).height() || 
+		$('.carousel-inner img').eq(1).height() ||
+		$('.carousel-inner img').eq(2).height();
+		var $width = $('.carousel-inner img').eq(0).width() || 
+		$('.carousel-inner img').eq(1).width() ||
+		$('.carousel-inner img').eq(2).width();
 // 		$('.carousel-control').css('line-height',$height + 'px');
-// 		//console.log($height);
+//		console.log($height + ' ' + $width);
 // 	});
-// });
+});
 
 </script>	
 </body>
