@@ -53,10 +53,12 @@ color: #666;
 .tab2 {
 	background-color: #eee;
 	padding: 60px 20px;
+	text-align: center;
 }
 
 .tab3 {
 	padding: 40px 0;
+	text-align: center;
 }
 .tab2 img {
 	width: 40%;
@@ -68,9 +70,136 @@ color: #666;
 	height: 65%;
 }
 
-#footer {
+#information {
 	background-color: #eee;
+	padding: 40px;
+}
+
+#footer {
+	background-color: #666;
 	border-top: 1px solid #ccc;
 	padding: 20px;
 	text-align: center;
+	color: #eee;
 }
+
+.text h3 {
+	font-size: 20px;
+}
+
+.text p {
+	font-size: 14px;
+}
+
+.jumbotron {
+	background-image: url(img/bg.jpg);
+	margin: 50px 0 0 0;
+	color: #eee;
+}
+
+
+.jumbotron h1 {
+	font-size: 36px;
+	padding: 0 0 0 20px;
+}
+
+.jumbotron h4 {
+	font-size: 18px;
+	padding: 0 0 0 20px;
+}
+
+.info-content {
+	background-color: #fff;
+	margin: 0 0 15px 0;
+	box-shadow: 2px 2px 3px;
+}
+
+.info-content img {
+	margin: 12px 0;
+}
+
+.info-content h4 {
+	color: #333;
+	padding: 2px 0 0 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.info-content p {
+	line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+	.jumbotron h1 {
+	font-size: 26px;
+	padding: 0 0 0 20px;
+}
+
+.jumbotron h4 {
+	font-size: 15px;
+	padding: 0 0 0 20px;
+}
+}
+
+@media (min-width: 768px) {
+.text h3 {
+font-size: 22px;
+}
+.text p {
+font-size: 15px;
+}
+.tab2-text {
+float: left;
+}
+.tab2-img {
+float: right;
+}
+
+
+
+}
+/* 中等屏幕（桌面显示器，大于等于992px） */
+@media (min-width: 992px) {
+.text h3 {
+font-size: 24px;
+}
+.text p {
+font-size: 16px;
+}
+.tab2-text {
+float: left;
+}
+.tab2-img {
+float: right;
+}
+}
+/* 大屏幕（大桌面显示器，大于等于1200px） */
+@media (min-width: 1200px) {
+.text h3 {
+font-size: 26px;
+}
+.text p {
+font-size: 18px;
+}
+.tab2-text {
+float: left;
+}
+.tab2-img {
+float: right;
+}
+
+.jumbotron h1 {
+	font-size: 36px;
+	padding: 0 0 0 20px;
+}
+
+.jumbotron h4 {
+	font-size: 18px;
+	padding: 0 0 0 20px;
+}
+
+}
+
+
+
+
