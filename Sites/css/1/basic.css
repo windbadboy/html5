@@ -47,11 +47,26 @@ body {
 
 }
 
+#header ul li a {
+	text-decoration: none;
+	color: #333;
+}
+
+#header ul li a:hover {
+	color: #f90;
+}
+
+h2 {
+	font-size: 14px;
+	background: #eee;
+	height: 25px;
+	text-indent: 10px;
+	line-height: 25px;
+}
 
 #footer {
 	width: auto;
 	height: 60px;
-	border: 2px solid #ccc;
 	clear: both;
 	text-align: center;
 }
