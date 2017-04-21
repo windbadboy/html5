@@ -6,7 +6,7 @@
 
 	define('IN_TG','true');
 	define('SCRIPT',"index");
-	require dirname(__FILE).'/includes/common.php'; 
+	require dirname(__FILE__).'/includes/common.php'; 
 	require ROOT_PATH."includes/title.inc.php";
 
 ?>
