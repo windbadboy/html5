@@ -12,12 +12,17 @@
 	require dirname(__FILE__).'/includes/common.php'; 
 	require ROOT_PATH."includes/title.inc.php";
 	if($_GET['action'] == 'register') {
-		if($_POST['yzm'] == $_SESSION['code']) {
-			echo 'welcome';
-		}
-		else {
+		if(!($_POST['yzm'] == $_SESSION['code'])) {
 			_alert_back('verify code error.');
+			exit();
 		}
+		include ROOT_PATH."includes/register.func.php";
+		$_clean = array();
+		$_clean['username'] = _check_username($_POST['username'],2,20);
+		$_clean['password'] = _check_password($_POST['password'],$_POST['nopassword'],6);
+		$_clean['question'] = _check_question($_POST['question'],4,20);
+		$_clean['answer'] = _check_answer($_POST['question'],$_POST['answer'],4,20);
+		print_r($_clean);
 	}
 
 ?>
@@ -33,9 +38,9 @@
 			<dt>请认真填写以下内容</dt>
 			<dd  style="letter-spacing: 3.5px;">用户名:<input type="text" name="username" class="text"></dd>
 			<dd>密　　码:<input type="password" name="password" class="text"></dd>
-			<dd>确认密码:<input type="password" name="password" class="text"></dd>
-			<dd>密码提示:<input type="text" name="passt" class="text"></dd>
-			<dd>密码回答:<input type="text" name="passh" class="text"></dd>
+			<dd>确认密码:<input type="password" name="nopassword" class="text"></dd>
+			<dd>密码提示:<input type="text" name="question" class="text"></dd>
+			<dd>密码回答:<input type="text" name="answer" class="text"></dd>
 			<dd>性　　别:　　<input type="radio" name="sex" value="男" checked="true">男　　<input type="radio" name="sex" value="女">女</dd>
 			<dd class="face"><input type="hidden" name='face'><img src="face/m01.gif" alt="头像选择" id="faceimg"></dd>
 			<dd>电子邮件:<input type="text" name="email" class="text"></dd>

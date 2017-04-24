@@ -9,6 +9,14 @@ function _runtime() {
 }
 
 
+
+/*
+random 弹出警告信息
+@access public
+@param:字符型信息
+@return void
+*/
+
 function _alert_back($_info) {
 	echo "<script type='text/javascript'>alert('".$_info."');history.back();</script>";
 }
