@@ -95,4 +95,37 @@ function _check_answer($_question,$_answer,$_min,$_max) {
 	return $_answer;
 }
 
+function _check_email($_string) {
+	if(!empty($_string)) {
+		//1039156@qq.com
+		if(!preg_match('/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/', $_string)) {
+			_alert_back('邮件格式不正确');
+		}
+		return $_string;
+	}	
+}
+
+function _check_qq($_string) {
+	if(empty($_string) && $_string != '0') {
+		return null;
+	} else {
+		if(!preg_match('/^[1-9]{1}[0-9]{4,9}$/', $_string)) {
+			_alert_back('url format is wrong.');
+		}
+	}
+	return $_string;
+}
+
+function _check_url($_string) {
+	if(empty($_string) || $_string == 'http://') {
+		_alert_back('url format is wrong.');
+	} else {
+		if(!preg_match('/^https?:\/\/(\w+\.)?[\w\-\.]+(\.\w+)+$/', $_string)) {
+			_alert_back('all url format is wrong.');
+		}
+	}
+	return $_string;
+}
+
+
 ?>
