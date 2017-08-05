@@ -6,9 +6,9 @@ class Action {
 		$this->_tpl = TPL::getInstance();
 	}
 	public function run() {
-		echo $_GET['a'];
+		$_m = isset($_GET['m']) ? $_GET['m'] : 'index';
+		method_exists($this, $_m) ? eval('$this->'.$_m.'();') : $this->index();
 	}
-
 }
 
 ?>
