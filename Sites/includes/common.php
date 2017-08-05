@@ -10,6 +10,17 @@
 }
 define('ROOT_PATH', substr(dirname(__FILE__),0,-8));
 require ROOT_PATH."includes/global.func.php";
+require ROOT_PATH."includes/mysql.func.php";
+
 define('START_TIME',_runtime());
 
-?>
+_connect();
+_select_db();
+_set_names();
+
+
+
+
+
+
+ ?>

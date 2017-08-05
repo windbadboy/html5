@@ -4,7 +4,7 @@
 		echo 'illegal.';
 		exit();
 	}
-
+	_close();
 
 ?>
 

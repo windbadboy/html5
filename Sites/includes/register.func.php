@@ -80,7 +80,7 @@ function _check_question($_string,$_min,$_max) {
 	if(mb_strlen($_string,'utf-8') < $_min || mb_strlen($_string,'utf-8') > $_max) {
 		_alert_back('问题提示不得小于'.$_min.'位或者大于'.$_max.'位');
 	}
-	return mysql_escape_string($_string);	
+	return _mysql_string($_string);	
 }
 
 
@@ -128,4 +128,26 @@ function _check_url($_string) {
 }
 
 
+function _mysql_string($_string) {
+	if(!get_magic_quotes_gpc()) {
+		return mysql_real_escape_string($_string);
+	}
+	return $_string+'aaa';
+}
+
+
+function _check_uniqid($_start_uniqid,$_end_uniqid) {
+	if(strlen($_start_uniqid) != 40 || $_start_uniqid != $_end_uniqid) {
+		_alert_back('uniqid error');
+	}
+	return $_start_uniqid;
+}
+
+function _check_face($_string) {
+	return _mysql_string($_string);
+}
+
+function _check_sex($_string) {
+	return _mysql_string($_string);
+}
 ?>

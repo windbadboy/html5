@@ -1,0 +1,49 @@
+[19-Jul-2017 08:15:00 UTC] PHP Deprecated:  preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty_Compiler.class.php on line 270
+[19-Jul-2017 08:15:00 UTC] PHP Warning:  strftime(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty_Compiler.class.php on line 400
+[19-Jul-2017 08:15:51 UTC] PHP Deprecated:  preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty_Compiler.class.php on line 270
+[19-Jul-2017 08:15:51 UTC] PHP Warning:  strftime(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty_Compiler.class.php on line 400
+[19-Jul-2017 16:26:52 Asia/Shanghai] PHP Deprecated:  preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty_Compiler.class.php on line 270
+[19-Jul-2017 16:47:22 Asia/Shanghai] PHP Fatal error:  Smarty error: [in demo.tpl line 11]: syntax error: unrecognized tag 'section1' (Smarty_Compiler.class.php, line 590) in C:\Users\badboy\Documents\GitHub\html5\smarty\Smarty.class.php on line 1093
+[19-Jul-2017 18:19:48 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:70
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(70): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 70
+[19-Jul-2017 18:22:50 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:22:51 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:22:51 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:22:52 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:22:52 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:22:52 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\Users\badboy\Documents\GitHub\html5\demo.php:71
+Stack trace:
+#0 C:\Users\badboy\Documents\GitHub\html5\demo.php(71): PDO->__construct('mysql:host=loca...', 'root', '123456781')
+#1 {main}
+  thrown in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 71
+[19-Jul-2017 18:45:33 Asia/Shanghai] PHP Fatal error:  Call to a member function exec() on null in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 106
+[20-Jul-2017 08:53:46 Asia/Shanghai] PHP Fatal error:  Undefined class constant 'ERRMOD_WARNING' in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 72
+[20-Jul-2017 09:37:04 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122
+[20-Jul-2017 09:37:04 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122
+[20-Jul-2017 09:37:05 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122
+[20-Jul-2017 09:37:05 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122
+[20-Jul-2017 09:37:05 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122
+[20-Jul-2017 09:37:05 Asia/Shanghai] PHP Fatal error:  Call to undefined method PDO::fetch() in C:\Users\badboy\Documents\GitHub\html5\demo.php on line 122

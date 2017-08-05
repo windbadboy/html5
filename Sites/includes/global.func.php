@@ -21,6 +21,12 @@ function _alert_back($_info) {
 	echo "<script type='text/javascript'>alert('".$_info."');history.back();</script>";
 }
 
+
+function _location($_info,$_url) {
+	echo "<script type='text/javascript'>alert('$_info');location.href='$_url';</script>";	
+}
+
+
 /*
 random verify code
 @access public
@@ -71,5 +77,13 @@ imagepng($_img);
 
 
 imagedestroy($_img);
+}
+
+
+
+function _check_code($_start_code,$_end_code) {
+	if($_start_code != $_end_code) {
+		_alert_back('验证码不正确');
+	}
 }
 ?>
