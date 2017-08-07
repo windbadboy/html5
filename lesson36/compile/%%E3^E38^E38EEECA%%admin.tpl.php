@@ -1,14 +1,14 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-07 14:02:00
-         compiled from default/admin.tpl */ ?>
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-07 15:44:42
+         compiled from admin/public/admin.tpl */ ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Online Shop Background Management</title>
-	<link rel="stylesheet" type="text/css" href="view/default/style/basic.css" />
-	<link rel="stylesheet" type="text/css" href="view/default/style/admin.css" />
-	<script type="text/javascript" src="view/default/js/iframe.js"></script>
-	<script type="text/javascript" src="view/default/js/channel.js"></script>	
+	<link rel="stylesheet" type="text/css" href="view/admin/style/basic.css" />
+	<link rel="stylesheet" type="text/css" href="view/admin/style/admin.css" />
+	<script type="text/javascript" src="view/admin/js/iframe.js"></script>
+	<script type="text/javascript" src="view/admin/js/channel.js"></script>	
 </head>
 <body>
 <div id="header">
@@ -42,7 +42,7 @@
 	</dl>
 	<dl style="display:none">
 		<dt>System</dt>
-			<dd><a href="###">system1</a></dd>
+			<dd><a href="?a=manage" target="in">Manager List</a></dd>
 			<dd><a href="###">system2</a></dd>
 			<dd><a href="###">system3</a></dd>
 	</dl>

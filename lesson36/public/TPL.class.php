@@ -15,20 +15,23 @@ class TPL extends smarty {
 	private function __clone() {}
 	private function setConfigs() {
 
-		$this->template_dir = ROOT_PATH.'/view/';
+		$this->template_dir = SMARTY_TEMPLATE_DIR;
 
 
-		$this->compile_dir = ROOT_PATH.'/compile/';
+		$this->compile_dir = SMARTY_COMPILE_DIR;
 
 
-		$this->config_dir = ROOT_PATH.'/config/';
+		$this->config_dir = SMARTY_CONFIG_DIR;
 
 
-		$this->cache_dir = ROOT_PATH.'/cache/';
+		$this->cache_dir = SMARTY_CACHE_DIR;
 
 
 
-		$this->caching = 0;		
+		$this->caching = SMARTY_CACHING;		
+		$this->cache_lifetime = SMARTY_CACHE_LIFETIME;
+		$this->left_delimiter = SMARTY_LEFT_DELIMITER;
+		$this->right_delimiter = SMARTY_RIGHT_DELIMITER;
 	}
 }
 

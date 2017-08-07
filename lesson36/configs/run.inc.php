@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 define('ROOT_PATH',substr(dirname(__FILE__),0,-8));
 require ROOT_PATH.'/configs/profile.inc.php';
 require ROOT_PATH.'/smarty/Smarty.class.php';

@@ -11,8 +11,8 @@ class DB {
 	private function __construct() {
 
 		try {
-			$_drive_opt = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES UTF8');
-			$this->_pdo = new PDO('mysql:host=127.0.0.1;dbname=mall','root','12345678',$_drive_opt);
+			$_drive_opt = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES '.DB_CHARSET);
+			$this->_pdo = new PDO(DB_DNS,DB_USER,DB_PASS,$_drive_opt);
 			$this->_pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);			
 		} catch (PDOException $e) {
 			exit($e->getMessage());
@@ -23,6 +23,15 @@ class DB {
 	}
 	private function __clone() {}
 
+	protected function add($_postData) {
+		print_r($_postData);
+		$_sql = "insert into mall_manage(user,pass) values('admin','123')";
+		$_stmt = $this->_pdo->prepare($_sql);
+		$_stmt->execute();
+	}
+
 }
+
+
 
 ?>
