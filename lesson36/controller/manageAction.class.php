@@ -11,7 +11,9 @@ class manageAction extends Action {
 	}	
 
 	public function add() {
-		$this->_model->add($_POST);
+		if(validate::isArray($_POST) && validate::isNull($_POST)) {
+			echo $this->_model->add(request::getInstance());		
+		}
 		$this->_tpl->display(SMARTY_ADMIN.'manage/add.tpl');
 	}
 	public function update() {

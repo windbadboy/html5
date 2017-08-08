@@ -17,4 +17,5 @@ define('DB_DNS','mysql:host=127.0.0.1;dbname=mall');
 define('DB_USER','root');
 define('DB_PASS','12345678');
 define('DB_CHARSET','UTF8');
+define('DB_FREFIX','mall_');
 ?>
