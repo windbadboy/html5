@@ -10,6 +10,8 @@ function __autoload($_className) {
 		require ROOT_PATH.'/controller/'.$_className.'.class.php';
 	} else if(substr($_className,-5) == 'Model') {
 		require ROOT_PATH.'/model/'.$_className.'.class.php';		
+	}elseif(substr($_className,-5) == 'Check') {
+		require ROOT_PATH.'/check/'.$_className.'.class.php';
 	} else {
 		require ROOT_PATH.'/public/'.$_className.'.class.php';		
 	}

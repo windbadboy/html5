@@ -26,6 +26,7 @@ class DB {
 	protected function add($_postData,$_tables) {
 		$_addFields = array();
 		$_addValues = array();
+		$_postData = tools::setFormString($_postData);
 		foreach ($_postData as $key => $value) {
 			$_addFields[] = $key;
 			$_addValues[] = $value;

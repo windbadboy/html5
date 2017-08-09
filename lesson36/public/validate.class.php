@@ -11,6 +11,10 @@ class validate {
 	static public function inArray($_data,$_array) {
 		return in_array($_data, $_array) ? true : false;
 	}
+
+	static public function isNullString($_string) {
+		return empty($_string) ? true : false;
+	}
 }
 
 ?>
