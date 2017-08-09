@@ -16,7 +16,10 @@ class request {
 	private function __clone() {}
 	public function add($_fields) {
 		$_addData = array();
-		$this->_check->check();
+		if(!$this->_check->check()) {
+			
+			exit(print_r($this->_check->getMessage()));
+		}
 		foreach ($_POST as $key => $value) {
 			if(validate::inArray($key, $_fields)) {
 				$_addData[$key] = $value;

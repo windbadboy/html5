@@ -4,7 +4,7 @@ class manageAction extends Action {
 
 
 	public function __construct() {
-		parent::__construct(new manageModel(),new manageCheck());
+		parent::__construct(Factory::setModel(),Factory::setCheck());
 	}
 	public function index() {
 		$this->_tpl->display(SMARTY_ADMIN.'manage/manage.tpl');

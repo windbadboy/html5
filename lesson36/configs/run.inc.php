@@ -17,7 +17,7 @@ function __autoload($_className) {
 	}
 }
 
-//单入口
+//one case mode
 
 Factory::setAction()->run();
 
