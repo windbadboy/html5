@@ -19,6 +19,14 @@ class manageAction extends Action {
 	public function update() {
 		$this->_tpl->display(SMARTY_ADMIN.'manage/update.tpl');
 	}
+	public function ajax() {
+		$_name = 'Chen';
+		if($_POST['user'] == $_name) {
+			echo 1;
+		}
+		echo 2;
+		
+	}	
 }
 
 ?>

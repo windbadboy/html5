@@ -19,6 +19,8 @@ class manageModel extends Model{
 	public function isOne($_where) {
 		return parent::isOne($_where,$this->_tables);
 	}
+	
+
 }
 
 ?>

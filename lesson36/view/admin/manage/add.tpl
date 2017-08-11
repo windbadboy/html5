@@ -5,14 +5,16 @@
 	<title>Online Shop Background Management</title>
 	<link rel="stylesheet" type="text/css" href="view/admin/style/basic.css" />	
 	<link rel="stylesheet" type="text/css" href="view/admin/style/manage.css" />
-<script type="text/javascript" src="view/admin/js/manage.js"></script>
+	<script type="text/javascript" src="view/admin/js/ajax.js"></script>
+	<script type="text/javascript" src="view/admin/js/manage.js"></script>
 
 </head>
 <body>
 <h2><a href="?a=manage">Back to Manager List</a>System -- Add Manager</h2>
 <form action="?a=manage&m=add" name="add" method="post">
+<input type="text" id="flag" name="flag">
 	<dl class="form">
-		<dd>用 户 名: <input type="text" name="user" class="text"> ( * )</dd>
+		<dd>用 户 名: <input type="text" name="user" id="user" onblur="checkUser();" class="text"> ( * )</dd>
 		<dd>密　　码: <input type="password" name="pass" class="text"> ( * )</dd>
 		<dd>确认密码: <input type="password" name="repass" class="text"> ( * )</dd>		
 		<dd>等　　级: <select name="level">
