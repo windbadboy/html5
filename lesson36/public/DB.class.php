@@ -34,10 +34,25 @@ class DB {
 		$_addFields = implode(',', $_addFields);
 		$_addValues = implode("','", $_addValues);
 		$_sql = "insert into $_tables[0]($_addFields) values('$_addValues')";
-		//echo $_sql;
+		return $this->execute($_sql);
+
+	}
+
+	protected function isOne($_where,$_tables) {
+		$_isEnd = '';
+		foreach ($_where as $_key => $_value) {
+			$_isEnd .= "$_key='$_value' and ";
+		}
+		$_isEnd = substr($_isEnd, 0,-4);
+		$_sql = "select * from $_tables[0] where $_isEnd limit 1";
+		echo $_sql;
+		return $this->execute($_sql);		
+	}
+
+	private function execute($_sql) {
 		$_stmt = $this->_pdo->prepare($_sql);
 		$_stmt->execute();
-		return $_stmt->rowCount();
+		return $_stmt->rowCount();		
 	}
 
 }

@@ -15,6 +15,23 @@ class validate {
 	static public function isNullString($_string) {
 		return empty($_string) ? true : false;
 	}
+
+	static public function checkStrLength($_string,$_length,$_flag,$_charset = 'utf-8') {
+		if($_flag == 'min') {
+			if(mb_strlen(trim($_string,$_charset))<$_length) return true;
+			return false;
+		}elseif($_flag == 'max') {
+			if(mb_strlen(trim($_string,$_charset))>$_length) return true;
+			return false;
+		}elseif($_flag == 'equals') {
+			if(mb_strlen(trim($_string,$_charset))!=$_length) return true;
+			return false;			
+		}
+	}
+	static public function checkEquals($_string,$_anotherstring) {
+		if(trim($_string) != trim($_anotherstring)) return true;
+			return false;
+	}
 }
 
 ?>

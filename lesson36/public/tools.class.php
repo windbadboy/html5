@@ -6,7 +6,7 @@ class tools {
 	}
 
 	static public function getDate() {
-		date_default_timezone_set('Asia/Shanghai');
+
 		return date('Y-m-d H:i:s');
 	}
 
@@ -22,6 +22,9 @@ class tools {
 		}
 
 		return $_string;
+	}
+	static public function getPrevPage() {
+		return $_SERVER['HTTP_REFERER'];
 	}
 }
 

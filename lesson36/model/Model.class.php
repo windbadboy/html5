@@ -11,6 +11,10 @@ class Model extends DB{
 	protected function add($_postData,$_tables) {
 		return $this->_DB->add($_postData,$_tables);
 	}
+
+	protected function isOne($_where,$_tables) {
+		return $this->_DB->isOne($_where,$_tables);
+	}
 }
 
 ?>

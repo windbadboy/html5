@@ -15,6 +15,10 @@ class manageModel extends Model{
 		//print_r($_postData);
 		return parent::add($_postData,$this->_tables);
 	}
+
+	public function isOne($_where) {
+		return parent::isOne($_where,$this->_tables);
+	}
 }
 
 ?>

@@ -23,7 +23,10 @@ class Factory {
 	}
 	
 	static public function getA() {
-		return isset($_GET['a']) ? $_GET['a'] : 'index';		
+		if(isset($_GET['a']) && !empty($_GET['a'])) {
+			return $_GET['a'];
+		}
+		return 'index';		
 	}
 }
 
