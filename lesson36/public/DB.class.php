@@ -45,7 +45,7 @@ class DB {
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
 		$_sql = "select * from $_tables[0] where $_isEnd limit 1";
-		echo $_sql;
+		//echo $_sql;
 		return $this->execute($_sql);		
 	}
 

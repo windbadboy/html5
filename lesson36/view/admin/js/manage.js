@@ -17,16 +17,14 @@ function checkUser(){
     ajax.swRequest({
         method:"POST",
         sync:false,
-        url:'index.php?a=manage&m=ajax',
+        url:'?a=manage&m=isUser',
         data:"user="+user.value,
         success: function(msg) {
             if(msg==1){
-            	alert('1');
                 flag.value = 'true';
             } else {
-            	alert('2');
-				flag.value = '';
-			}
+                flag.value = '';
+            }
         },
         failure: function(a) {
             alert(a);

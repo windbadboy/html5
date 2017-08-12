@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+.succ {
+	border:1px solid #BBDDE5;
+	background: #EEF8F9;	
+	padding:10px;
+}
+
+.succ p {
+	padding: 0 0 10px 0;
+	color: green;
+}
+
+.succ a {
+	text-decoration: none;
+	color: #335B64;	
+}
+
+.succ a:hover {
+	text-decoration: none;
+	color: #f60;		
+}

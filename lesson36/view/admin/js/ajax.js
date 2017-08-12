@@ -40,7 +40,7 @@ function AjaxObj() {
                 if(req.status==200||req.status==0){
                      var obj = null;
                      var text = req.responseText;
-                     eval("obj = "+ text);
+                     eval("obj = " + text);
                      cfg.success.call(cfg.soap||this,obj);
                     return;
                 }else{

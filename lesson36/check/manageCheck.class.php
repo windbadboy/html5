@@ -31,6 +31,13 @@ class ManageCheck extends Check {
 		return $this->_flag;
 
 	}
+	public function ajax($_model) {
+		if($_model->isOne(array('user'=>$_POST['user']))) {
+			echo 1;		
+		} else {
+			echo 2;
+		}		
+	}
 }
 
 
