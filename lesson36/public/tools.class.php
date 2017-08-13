@@ -26,6 +26,21 @@ class tools {
 	static public function getPrevPage() {
 		return $_SERVER['HTTP_REFERER'];
 	}
+	//html过滤
+	static public function setHtmlString($_data) {
+		if (is_array($_data)) {
+			foreach ($_data as $_key=>$_value) {
+				$_string[$_key] = self::setHtmlString($_value);  //递归
+			}
+		} elseif (is_object($_data)) {
+			foreach ($_data as $_key=>$_value) {
+				$_string->$_key = self::setHtmlString($_value);  //递归
+			}
+		} else {
+			$_string = htmlspecialchars($_data);
+		}
+		return $_string;
+	}
 }
 
 ?>

@@ -7,7 +7,10 @@ class manageAction extends Action {
 		parent::__construct(Factory::setModel());
 	}
 	public function index() {
-		$this->_tpl->display(SMARTY_ADMIN.'manage/manage.tpl');
+		//显示总记录数
+		parent::page($this->_model->total());
+		$this->_tpl->assign('ALLManage',$this->_model->findAll());
+		$this->_tpl->display(SMARTY_ADMIN.'manage/show.tpl');
 	}	
 
 	public function add() {

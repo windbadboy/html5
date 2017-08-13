@@ -2,10 +2,14 @@
 
 class DB {
 	private $_pdo = null;
+	private $_tables = array();
 	static private $_instance = null;
-	static protected function getInstance() {
+	static protected function getInstance($_tables) {
 		if(!(self::$_instance instanceof self))
-		    {self::$_instance = new self();}
+		    {
+		    	self::$_instance = new self();
+		    	self::$_instance->_tables = $_tables;
+		    }
 		return self::$_instance;
 	}
 	private function __construct() {
@@ -23,7 +27,7 @@ class DB {
 	}
 	private function __clone() {}
 
-	protected function add($_postData,$_tables) {
+	protected function add($_postData) {
 		$_addFields = array();
 		$_addValues = array();
 		$_postData = tools::setFormString($_postData);
@@ -33,26 +37,43 @@ class DB {
 		}
 		$_addFields = implode(',', $_addFields);
 		$_addValues = implode("','", $_addValues);
-		$_sql = "insert into $_tables[0]($_addFields) values('$_addValues')";
-		return $this->execute($_sql);
+		$_sql = "insert into {$this->_tables[0]}($_addFields) values('$_addValues')";
+		return $this->execute($_sql)->rowCount();
 
 	}
 
-	protected function isOne($_where,$_tables) {
+	protected function isOne($_where) {
 		$_isEnd = '';
 		foreach ($_where as $_key => $_value) {
 			$_isEnd .= "$_key='$_value' and ";
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
-		$_sql = "select * from $_tables[0] where $_isEnd limit 1";
+		$_sql = "select * from {$this->_tables[0]} where $_isEnd limit 1";
 		//echo $_sql;
-		return $this->execute($_sql);		
+		return $this->execute($_sql)->rowCount();		
+	}
+	
+	protected function select($_fields) {
+		$_selectFields = implode(',', $_fields);		
+		$_sql = "select $_selectFields from {$this->_tables[0]}";
+		$_stmt = $this->execute($_sql);
+		$_result = array();
+		while(!!$_objs = $_stmt->fetchObject()) {
+			$_result[] = $_objs;
+		}
+		return tools::setHtmlString($_result);
+	}
+	
+	protected function total() {
+		$_sql = "select count(*) count from {$this->_tables[0]}";
+		$_stmt = $this->execute($_sql);
+		return $_stmt->fetchObject()->count;
 	}
 
 	private function execute($_sql) {
 		$_stmt = $this->_pdo->prepare($_sql);
 		$_stmt->execute();
-		return $_stmt->rowCount();		
+		return $_stmt;		
 	}
 
 }
