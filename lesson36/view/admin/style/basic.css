@@ -101,7 +101,7 @@ dl.form input.submit {
 	margin:0 2px;
 	text-decoration:none;
 }
-#page a:hover,#page span.me {
+#page a:hover {
 	color:#fff;
 	border:1px solid #335B64;
 	background:#335B64;
@@ -113,9 +113,12 @@ dl.form input.submit {
 	margin:0 2px;
 	color:#ccc;
 }
-#page span.me {
+#page a.me {
 	padding:2px 5px;
 	margin:0 2px;
+	border:none;
+	color:red;
+	border:none;
 }
 #page select.select {
 	width:120px;

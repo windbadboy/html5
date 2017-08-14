@@ -18,5 +18,5 @@ define('DB_USER','root');
 define('DB_PASS','12345678');
 define('DB_CHARSET','UTF8');
 define('DB_FREFIX','mall_');
-define('PAGE_SIZE', 2);
+define('PAGE_SIZE', 1);
 ?>
