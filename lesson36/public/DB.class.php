@@ -42,9 +42,9 @@ class DB {
 
 	}
 
-	protected function isOne($_where) {
+	protected function isOne($_isOneData) {
 		$_isEnd = '';
-		foreach ($_where as $_key => $_value) {
+		foreach ($_isOneData as $_key => $_value) {
 			$_isEnd .= "$_key='$_value' and ";
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
@@ -53,15 +53,28 @@ class DB {
 		return $this->execute($_sql)->rowCount();		
 	}
 	
-	protected function select($_fields) {
+	protected function select($_fields,$_param = array()) {
 		$_selectFields = implode(',', $_fields);		
-		$_sql = "select $_selectFields from {$this->_tables[0]}";
+		$_limit = isset($_param['limit']) ? $_param['limit'] : '';
+		$_order = isset($_param['order']) ? $_param['order'] : '';
+		$_sql = "select $_selectFields from {$this->_tables[0]} $_order $_limit";
 		$_stmt = $this->execute($_sql);
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {
 			$_result[] = $_objs;
 		}
 		return tools::setHtmlString($_result);
+	}
+	
+	protected function delete($_deleteData) {
+	    $_isEnd = '';
+	    foreach ($_deleteData as $_key => $_value) {
+	        $_isEnd .= "$_key='$_value' and ";
+	    }
+	    $_isEnd = substr($_isEnd, 0,-4);
+	    $_sql = "delete from {$this->_tables[0]} where $_isEnd";
+	    $_stmt = $this->execute($_sql);
+	    return $_stmt->rowCount();
 	}
 	
 	protected function total() {

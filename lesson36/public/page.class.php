@@ -16,7 +16,7 @@ class Page {
 		$this->_pagenum = ceil($this->_total / $this->_pagesize);
 		$this->_page = $this->setPage();
 		$this->_limit = "LIMIT ".($this->_page-1)*$this->_pagesize.",$this->_pagesize";
-		$this->_url = $this->setUrl();
+		$this->_url = $this->setUrl();//重新组合url
 		$this->_bothnum = 2;
 	}
 	
@@ -50,11 +50,15 @@ class Page {
 	//获取地址
 	private function setUrl() {
 		$_url = $_SERVER["REQUEST_URI"];
+		//echo $_url;
 		$_par = parse_url($_url);
-		if (isset($_par['query'])) {
+		//print_r($_par) ;
+		if (isset($_par['query'])) {		 
 			parse_str($_par['query'],$_query);
+			//print_r($_query);
 			unset($_query['page']);
 			$_url = $_par['path'].'?'.http_build_query($_query);
+			//echo $_url;
 		}
 		return $_url;
 	}

@@ -17,11 +17,15 @@ class Action {
 	}
 	
 	public function page($_total,$_pagesize = PAGE_SIZE) {
-		$_page = new Page($_total, $_pagesize);
-		$this->_model->setLimit($_page->getLimit());
+		$_page = new Page($_total, $_pagesize);//执行Page构造函数
+		$this->_model->setLimit($_page->getLimit());//得到limit sql语句
 		$this->_tpl->assign('page',$_page->showpage());
 		$this->_tpl->assign('num',($_page->getPage()-1)*$_pagesize);		
 		
+	}
+	
+	public function delete($_id) {
+	    //if($this->_model->_request->)
 	}
 }
 

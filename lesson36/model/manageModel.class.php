@@ -16,8 +16,8 @@ class manageModel extends Model{
 		return parent::add($_postData);
 	}
 
-	public function isOne($_where,$_tables='') {
-		return parent::isOne($_where);
+	public function isOne($_isOneData,$_tables='') {
+	    return parent::isOne($_isOneData);
 	}
 
 	public function isUser() {
@@ -25,7 +25,11 @@ class manageModel extends Model{
 	}
 	
 	public function findAll() {
-		return parent::select(array('user','level','login_count','last_ip','last_login'));
+		return parent::select(array('id','user','level','login_count','last_ip','last_login'),array('limit'=>$this->_limit,'order'=>'ORDER BY reg_time DESC'));
+	}
+	
+	public function delete($_id) {
+	    parent::delete($_id);
 	}
 	
 	public function total() {

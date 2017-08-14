@@ -18,12 +18,16 @@ class Model extends DB{
 		return $this->_DB->add($_postData);
 	}
 
-	protected function isOne($_where) {
-		return $this->_DB->isOne($_where);
+	protected function isOne($_isOneData) {
+	    return $this->_DB->isOne($_isOneData);
 	}
 	
-	protected function select($_fields) {
-		return $this->_DB->select($_fields);
+	protected function select($_fields,$_param = array()) {
+		return $this->_DB->select($_fields,$_param);
+	}
+	
+	protected function delete($_id) {
+	    return $this->_DB->delete($_id);
 	}
 	
 	protected function total() {
