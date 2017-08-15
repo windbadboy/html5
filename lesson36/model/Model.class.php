@@ -7,10 +7,10 @@ class Model extends DB{
 	protected $_request = null;
 	protected $_check = null;
 	protected $_limit ='';
-	protected function __construct($_check = null,$_model = null,$_tables='') {
-		$this->_DB = parent::getInstance($_tables);
-		$this->_check = $_check;
-		$this->_request = request::getInstance($_check,$_model);
+	protected function __construct() {
+		$this->_DB = parent::getInstance($this->_tables);
+		$this->_check = Factory::setCheck();
+		$this->_request = request::getInstance($this->_check,$this);
 
 	}
 
@@ -26,8 +26,8 @@ class Model extends DB{
 		return $this->_DB->select($_fields,$_param);
 	}
 	
-	protected function delete($_id) {
-	    return $this->_DB->delete($_id);
+	protected function delete($_deleteData='') {
+	    return $this->_DB->delete($_deleteData);
 	}
 	
 	protected function total() {

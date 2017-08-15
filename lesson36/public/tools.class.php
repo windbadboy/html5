@@ -24,7 +24,7 @@ class tools {
 		return $_string;
 	}
 	static public function getPrevPage() {
-		return $_SERVER['HTTP_REFERER'];
+	    return empty($_SERVER['HTTP_REFERER']) ? '###' : $_SERVER['HTTP_REFERER'];
 	}
 	//html过滤
 	static public function setHtmlString($_data) {

@@ -66,7 +66,7 @@ class DB {
 		return tools::setHtmlString($_result);
 	}
 	
-	protected function delete($_deleteData) {
+	protected function delete($_deleteData='') {
 	    $_isEnd = '';
 	    foreach ($_deleteData as $_key => $_value) {
 	        $_isEnd .= "$_key='$_value' and ";

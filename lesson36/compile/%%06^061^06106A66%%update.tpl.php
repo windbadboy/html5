@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-15 19:36:59
+         compiled from admin/manage/update.tpl */ ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -4,7 +4,7 @@ class manageModel extends Model{
 	public function __construct() {
 		$this->_fields = array('id','user','pass','level','login_count','last_ip','last_login','reg_time');
 		$this->_tables = array(DB_FREFIX.'manage');
-		parent::__construct(Factory::setCheck(),$this,$this->_tables);
+		parent::__construct();
 	}
 
 	public function add($_postData='') {
@@ -28,8 +28,10 @@ class manageModel extends Model{
 		return parent::select(array('id','user','level','login_count','last_ip','last_login'),array('limit'=>$this->_limit,'order'=>'ORDER BY reg_time DESC'));
 	}
 	
-	public function delete($_id) {
-	    parent::delete($_id);
+	public function delete($_deleteData='') {
+	    $_deleteData = $this->_request->delete($this->_fields);
+	    return parent::delete($_deleteData);
+	    //print_r($_deleteData);
 	}
 	
 	public function total() {
