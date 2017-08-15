@@ -20,7 +20,7 @@ class manageAction extends Action {
 	}
 	public function update() {
 	    if(isset($_GET['id'])) {
-	        
+	        $this->_model->findOne();
 	        $this->_tpl->display(SMARTY_ADMIN.'manage/update.tpl');
 	    }
 

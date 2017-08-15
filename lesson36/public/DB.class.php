@@ -52,12 +52,13 @@ class DB {
 		//echo $_sql;
 		return $this->execute($_sql)->rowCount();		
 	}
-	
+	//查询
 	protected function select($_fields,$_param = array()) {
 		$_selectFields = implode(',', $_fields);		
 		$_limit = isset($_param['limit']) ? $_param['limit'] : '';
 		$_order = isset($_param['order']) ? $_param['order'] : '';
 		$_sql = "select $_selectFields from {$this->_tables[0]} $_order $_limit";
+		echo $_sql;
 		$_stmt = $this->execute($_sql);
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {

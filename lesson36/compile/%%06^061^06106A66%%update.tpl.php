@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-15 19:36:59
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-15 23:35:41
          compiled from admin/manage/update.tpl */ ?>
 <!DOCTYPE html>
 <html>
