@@ -41,6 +41,23 @@ class DB {
 		return $this->execute($_sql)->rowCount();
 
 	}
+	
+	protected function update($_oneData,$_postData) {
+		$_isEnd = '';
+		foreach ($_oneData as $_key => $_value) {
+			$_isEnd .= "$_key='$_value' and ";
+		}
+		$_isEnd = substr($_isEnd, 0,-4);
+
+		$_setData = '';
+		foreach ($_postData as $_key => $_value) {
+			$_setData .= "$_key='$_value',";
+		}
+		$_setData = substr($_setData, 0,-1);
+		
+		$_sql = "UPDATE {$this->_tables[0]} set $_setData WHERE $_isEnd LIMIT 1";
+		return $this->execute($_sql)->rowCount();
+	}
 
 	protected function isOne($_isOneData) {
 		$_isEnd = '';

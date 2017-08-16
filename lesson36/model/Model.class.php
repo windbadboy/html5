@@ -17,6 +17,10 @@ class Model extends DB{
 	protected function add($_postData) {
 		return $this->_DB->add($_postData);
 	}
+	
+	protected function update($_oneData,$_postData) {
+		return $this->_DB->update($_oneData,$_postData);
+	}
 
 	protected function isOne($_isOneData) {
 	    return $this->_DB->isOne($_isOneData);

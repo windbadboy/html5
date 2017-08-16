@@ -24,6 +24,15 @@ class request {
         $_addData = $this->selectData($_POST, $_fields);
 		return $_addData;
 	}
+	
+	//更新一条记录
+	public function update($_fields) {	
+		$_updateData = array();
+		if(!$this->_check->updateCheck($this->_model,$_POST)) $this->check();
+		$_updateData = $this->selectData($_POST, $_fields);
+		return $_updateData;		
+	}
+	
     //删除一条记录
 	public function delete($_fields) {
         $_deleteData = array();
@@ -31,7 +40,7 @@ class request {
         if(!$this->_check->deleteCheck($this->_model,$_deleteData)) $this->check();
         return $_deleteData;
 	}
-	
+	//检查数据是否存在
 	public function one($_fields) {
 	    $_oneData = array();
 	    $_oneData = $this->selectData($_GET, $_fields);

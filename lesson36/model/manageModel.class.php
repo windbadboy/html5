@@ -40,9 +40,12 @@ class manageModel extends Model{
 	}
 	
 	
-	public function update() {
+	public function update($_n1='',$_n2='') {
 
 	    $_oneData = $this->_request->one($this->_fields);
+	    $_requestData = $this->_request->update($this->_fields);
+	    $_requestData['pass'] = md5($_requestData['pass']);
+	    return parent::update($_oneData,$_requestData);
 	    
 	}
 	

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-16 16:57:32
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-16 22:22:01
          compiled from admin/manage/update.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -7,6 +7,7 @@
 	<title>Online Shop Background Management</title>
 	<link rel="stylesheet" type="text/css" href="view/admin/style/basic.css" />	
 	<link rel="stylesheet" type="text/css" href="view/admin/style/manage.css" />
+	<script type="text/javascript" src="view/admin/js/manage.js"></script>	
 
 
 </head>
@@ -44,7 +45,7 @@
 		</select> ( * )
 
 		</dd>
-		<dd><input type="submit" name="send" value="修改信息" class="submit"></dd>
+		<dd><input type="submit" name="send" value="修改信息" class="submit" onclick="return updateManage();"></dd>
 	</dl>
 </form>
 </body>

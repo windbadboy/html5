@@ -1,6 +1,7 @@
 <?php
 
 class ManageCheck extends Check {
+	//增加数据合法性检查
 	public function addCheck($_model,$_requestData='') {
 	    if(self::isNullString($_requestData['user'])) {
 			$this->_message[] = 'empty username.';
@@ -31,7 +32,20 @@ class ManageCheck extends Check {
 		return $this->_flag;
 
 	}
+	//更新数据合法性检查
+	public function updateCheck($_model,$_requestData='') {
+		if(self::checkEquals($_requestData['pass'],$_requestData['repass'])) {
+			$this->_message[] = 'Password inconsistency.';
+			$this->_flag = false;
+		}
+		if(self::isNullString($_requestData['level'])) {
+			$this->_message[] = 'user level must have a choice.';
+			$this->_flag = false;
+		}		
+		return $this->_flag;
+	}
 	
+	//删除数据合法性检查
 	public function deleteCheck($_model,$_requestData='') {
 	    if(!$_model->isOne(array('id'=>$_requestData['id']))) {
 	        $this->_message[] = '未找到该用户id，删除失败.';

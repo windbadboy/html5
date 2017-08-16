@@ -5,6 +5,7 @@
 	<title>Online Shop Background Management</title>
 	<link rel="stylesheet" type="text/css" href="view/admin/style/basic.css" />	
 	<link rel="stylesheet" type="text/css" href="view/admin/style/manage.css" />
+	<script type="text/javascript" src="view/admin/js/manage.js"></script>	
 
 
 </head>
@@ -40,7 +41,7 @@
 		</select> ( * )
 
 		</dd>
-		<dd><input type="submit" name="send" value="修改信息" class="submit"></dd>
+		<dd><input type="submit" name="send" value="修改信息" class="submit" onclick="return updateManage();"></dd>
 	</dl>
 </form>
 </body>
