@@ -41,6 +41,17 @@ class ManageCheck extends Check {
 	    
 	    return $this->_flag;
 	}
+	
+	public function oneCheck($_model,$_requestData='') {
+	    if(!$_model->isOne(array('id'=>$_requestData['id']))) {
+	        $this->_message[] = '未找到该用户id，处理失败.';
+	        $this->_flag = false;
+	    }
+	    
+	    
+	    return $this->_flag;
+	}
+	
 	public function ajax($_model) {
 		if($_model->isOne(array('user'=>$_POST['user']))) {
 			echo 1;		

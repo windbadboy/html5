@@ -25,17 +25,25 @@ class manageModel extends Model{
 	}
 	
 	public function findAll() {
-		return parent::select(array('id','user','level','login_count','last_ip','last_login'),array('limit'=>$this->_limit,'order'=>'ORDER BY reg_time DESC'));
+		return parent::select(array('id','user','level','login_count','last_ip','last_login'),array('limit'=>$this->_limit,'order'=>'reg_time DESC'));
 	}
 	
 	public function findOne() {
-		parent::select(array('id','user','level','pass'),array('where'=>'where id=15','limit'=>'LIMIT 1'));
+	    $_oneData = $this->_request->one($this->_fields);
+	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
 	}
 	
 	public function delete($_deleteData='') {
 	    $_deleteData = $this->_request->delete($this->_fields);
 	    return parent::delete($_deleteData);
-	    //print_r($_deleteData);
+
+	}
+	
+	
+	public function update() {
+
+	    $_oneData = $this->_request->one($this->_fields);
+	    
 	}
 	
 	public function total() {

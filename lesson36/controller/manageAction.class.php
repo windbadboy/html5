@@ -19,11 +19,11 @@ class manageAction extends Action {
 		$this->_tpl->display(SMARTY_ADMIN.'manage/add.tpl');
 	}
 	public function update() {
+	    if(isset($_POST['send'])) $this->_model->update() ? $this->_redirect->succ(tools::getPrevPage(),'修改数据成功') : $this->_redirect->error('修改数据失败');
 	    if(isset($_GET['id'])) {
-	        $this->_model->findOne();
+	        $this->_tpl->assign('oneManage',$this->_model->findOne());
 	        $this->_tpl->display(SMARTY_ADMIN.'manage/update.tpl');
 	    }
-
 	}
 	public function isUser() {
 		$this->_model->isUser();

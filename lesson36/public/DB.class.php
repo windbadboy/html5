@@ -55,10 +55,17 @@ class DB {
 	//查询
 	protected function select($_fields,$_param = array()) {
 		$_selectFields = implode(',', $_fields);		
-		$_limit = isset($_param['limit']) ? $_param['limit'] : '';
-		$_order = isset($_param['order']) ? $_param['order'] : '';
-		$_sql = "select $_selectFields from {$this->_tables[0]} $_order $_limit";
-		echo $_sql;
+		$_limit = isset($_param['limit']) ? 'LIMIT '.$_param['limit'] : '';
+		$_order = isset($_param['order']) ? 'ORDER BY '.$_param['order'] : '';
+		$_isEnd = '';
+		if(isset($_param['where'])) {
+		    foreach ($_param['where'] as $_key=>$_value) {
+		        $_isEnd .= "$_key='$_value' and ";
+		    }
+		    $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
+		}
+		$_sql = "select $_selectFields from {$this->_tables[0]} $_isEnd $_order $_limit";
+		//echo $_sql;
 		$_stmt = $this->execute($_sql);
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {

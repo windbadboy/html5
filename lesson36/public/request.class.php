@@ -31,6 +31,13 @@ class request {
         if(!$this->_check->deleteCheck($this->_model,$_deleteData)) $this->check();
         return $_deleteData;
 	}
+	
+	public function one($_fields) {
+	    $_oneData = array();
+	    $_oneData = $this->selectData($_GET, $_fields);
+	    if(!$this->_check->oneCheck($this->_model,$_oneData)) $this->check();
+	    return $_oneData;
+	}
 	//检验数据全法性
 	private function check() {
 	    $this->_tpl = TPL::getInstance();
@@ -39,6 +46,7 @@ class request {
 	    $this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');
 	    exit();
 	}
+	
 	//筛选数据
 	private function selectData($_requestData,$_fields) {
 	    $_selectData = array();
