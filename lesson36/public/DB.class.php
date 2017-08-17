@@ -57,6 +57,7 @@ class DB {
 		$_setData = substr($_setData, 0,-1);
 		
 		$_sql = "UPDATE $_tables[0] set $_setData WHERE $_isEnd LIMIT 1";
+		//echo $_sql;
 		return $this->execute($_sql)->rowCount();
 	}
 

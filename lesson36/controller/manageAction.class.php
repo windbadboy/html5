@@ -4,8 +4,9 @@ class manageAction extends Action {
     private $_levelmodel = null;
 
 	public function __construct() {
-	    $this->_levelmodel = new levelModel();
 		parent::__construct();
+		$this->_levelmodel = new levelModel();
+
 
 
 	}
@@ -28,6 +29,7 @@ class manageAction extends Action {
 	public function update() {
 	    if(isset($_POST['send'])) $this->_model->update() ? $this->_redirect->succ(tools::getPrevPage(),'修改数据成功') : $this->_redirect->error('修改数据失败');
 	    if(isset($_GET['id'])) {
+	    	$this->_tpl->assign('ALLlevel',tools::setFormItem($this->_levelmodel->findAll(), 'id', 'level_name'));
 	        $this->_tpl->assign('oneManage',$this->_model->findOne());
 	        $this->_tpl->display(SMARTY_ADMIN.'manage/update.tpl');
 	    }

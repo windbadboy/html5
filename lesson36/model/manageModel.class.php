@@ -2,9 +2,10 @@
 
 class manageModel extends Model{
 	public function __construct() {
+		parent::__construct();
 		$this->_fields = array('id','user','pass','level','login_count','last_ip','last_login','reg_time');
 		$this->_tables = array(DB_FREFIX.'manage');
-		parent::__construct();
+
 	}
 
 	public function add($_n1='',$_postData='') {
@@ -18,7 +19,7 @@ class manageModel extends Model{
 		return parent::add($_postData);
 	}
 
-	public function isOne($_n1='',$_isOneData,$_tables='') {
+	public function isOne($_isOneData) {
 	    return parent::isOne($_isOneData);
 	}
 
@@ -43,7 +44,6 @@ class manageModel extends Model{
 	
 	
 	public function update($_n3='',$_n1='',$_n2='') {
-
 	    $_oneData = $this->_request->one($this->_fields);
 	    $_requestData = $this->_request->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);

@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-16 22:22:01
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-18 00:19:44
          compiled from admin/manage/update.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'admin/manage/update.tpl', 21, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,26 +24,8 @@
 		<dd>确认密码: <input type="password" name="repass" class="text"> ( * )</dd>		
 		<dd>等　　级: <select name="level">
 			<option value="0">--choose a level</option>
-			<?php if ($this->_tpl_vars['oneManage'][0]->level == 1): ?>
-			<option value="1" selected="selected">超级管理员</option>
-			<?php else: ?>
-			<option value="1">超级管理员</option>
-			<?php endif; ?>
-			<?php if ($this->_tpl_vars['oneManage'][0]->level == 2): ?>						
-			<option value="2" selected="selected">普通管理员</option>
-			<?php else: ?>			
-			<option value="2">普通管理员</option>
-			<?php endif; ?>
-			<?php if ($this->_tpl_vars['oneManage'][0]->level == 3): ?>										
-			<option value="3" selected="selected">商品发布专员</option>
-			<?php else: ?>
-			<option value="3">商品发布专员</option>
-			<?php endif; ?>
-			<?php if ($this->_tpl_vars['oneManage'][0]->level == 4): ?>						
-			<option value="4" selected="selected">订单处理专员</option>
-			<?php else: ?>
-			<option value="4">订单处理专员</option>
-			<?php endif; ?>			
+			<?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['ALLlevel'],'selected' => $this->_tpl_vars['oneManage'][0]->level), $this);?>
+			
 		</select> ( * )
 
 		</dd>
