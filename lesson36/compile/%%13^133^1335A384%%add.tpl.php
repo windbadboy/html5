@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-12 20:55:49
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-17 19:43:31
          compiled from admin/manage/add.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', 'admin/manage/add.tpl', 22, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +23,8 @@
 		<dd>确认密码: <input type="password" name="repass" class="text"> ( * )</dd>		
 		<dd>等　　级: <select name="level">
 			<option value="0">--choose a level</option>
-			<option value="1">超级管理员</option>
-			<option value="2">普通管理员</option>
-			<option value="3">商品发布专员</option>
-			<option value="4">订单处理专员</option>
+				<?php echo smarty_function_html_options(array('options' => $this->_tpl_vars['ALLlevel']), $this);?>
+						
 		</select> ( * )
 
 		</dd>

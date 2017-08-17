@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_STRICT);
 define('ROOT_PATH',substr(dirname(__FILE__),0,-8));
 header('Content-Type:text/html;charset=utf-8');
 require ROOT_PATH.'/configs/profile.inc.php';

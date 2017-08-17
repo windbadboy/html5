@@ -23,6 +23,17 @@ class tools {
 
 		return $_string;
 	}
+	
+	static public function setFormItem($_array,$_key,$_value) {
+	    $_realArray=array();
+	    if(validate::isArray($_array)) {
+	        foreach ($_array as $_obj) {
+	            $_realArray[$_obj->$_key] = $_obj->$_value;
+	        }
+	        return $_realArray;
+	    }
+	}
+	
 	static public function getPrevPage() {
 	    return empty($_SERVER['HTTP_REFERER']) ? '###' : $_SERVER['HTTP_REFERER'];
 	}

@@ -8,34 +8,34 @@ class Model extends DB{
 	protected $_check = null;
 	protected $_limit ='';
 	protected function __construct() {
-		$this->_DB = parent::getInstance($this->_tables);
+		$this->_DB = parent::getInstance();
 		$this->_check = Factory::setCheck();
 		$this->_request = request::getInstance($this->_check,$this);
 
 	}
 
 	protected function add($_postData) {
-		return $this->_DB->add($_postData);
+	    return $this->_DB->add($this->_tables,$_postData);
 	}
 	
 	protected function update($_oneData,$_postData) {
-		return $this->_DB->update($_oneData,$_postData);
+	    return $this->_DB->update($this->_tables,$_oneData,$_postData);
 	}
 
 	protected function isOne($_isOneData) {
-	    return $this->_DB->isOne($_isOneData);
+	    return $this->_DB->isOne($this->_tables,$_isOneData);
 	}
 	
 	protected function select($_fields,$_param = array()) {
-		return $this->_DB->select($_fields,$_param);
+	    return $this->_DB->select($this->_tables,$_fields,$_param);
 	}
 	
 	protected function delete($_deleteData='') {
-	    return $this->_DB->delete($_deleteData);
+	    return $this->_DB->delete($this->_tables,$_deleteData);
 	}
 	
 	protected function total() {
-		return $this->_DB->total();
+	    return $this->_DB->total($this->_tables);
 	}
 	
 	public function setLimit($_limit) {

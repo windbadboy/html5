@@ -2,14 +2,15 @@
 
 class DB {
 	private $_pdo = null;
-	private $_tables = array();
+
 	static private $_instance = null;
-	static protected function getInstance($_tables) {
+	static protected function getInstance() {
 		if(!(self::$_instance instanceof self))
 		    {
 		    	self::$_instance = new self();
-		    	self::$_instance->_tables = $_tables;
+
 		    }
+
 		return self::$_instance;
 	}
 	private function __construct() {
@@ -27,7 +28,7 @@ class DB {
 	}
 	private function __clone() {}
 
-	protected function add($_postData) {
+	protected function add($_tables,$_postData) {
 		$_addFields = array();
 		$_addValues = array();
 		$_postData = tools::setFormString($_postData);
@@ -37,12 +38,12 @@ class DB {
 		}
 		$_addFields = implode(',', $_addFields);
 		$_addValues = implode("','", $_addValues);
-		$_sql = "insert into {$this->_tables[0]}($_addFields) values('$_addValues')";
+		$_sql = "insert into $_tables[0]($_addFields) values('$_addValues')";
 		return $this->execute($_sql)->rowCount();
 
 	}
 	
-	protected function update($_oneData,$_postData) {
+	protected function update($_tables,$_oneData,$_postData) {
 		$_isEnd = '';
 		foreach ($_oneData as $_key => $_value) {
 			$_isEnd .= "$_key='$_value' and ";
@@ -55,22 +56,22 @@ class DB {
 		}
 		$_setData = substr($_setData, 0,-1);
 		
-		$_sql = "UPDATE {$this->_tables[0]} set $_setData WHERE $_isEnd LIMIT 1";
+		$_sql = "UPDATE $_tables[0] set $_setData WHERE $_isEnd LIMIT 1";
 		return $this->execute($_sql)->rowCount();
 	}
 
-	protected function isOne($_isOneData) {
+	protected function isOne($_tables,$_isOneData) {
 		$_isEnd = '';
 		foreach ($_isOneData as $_key => $_value) {
 			$_isEnd .= "$_key='$_value' and ";
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
-		$_sql = "select * from {$this->_tables[0]} where $_isEnd limit 1";
+		$_sql = "select * from $_tables[0] where $_isEnd limit 1";
 		//echo $_sql;
 		return $this->execute($_sql)->rowCount();		
 	}
 	//查询
-	protected function select($_fields,$_param = array()) {
+	protected function select($_tables,$_fields,$_param = array()) {
 		$_selectFields = implode(',', $_fields);		
 		$_limit = isset($_param['limit']) ? 'LIMIT '.$_param['limit'] : '';
 		$_order = isset($_param['order']) ? 'ORDER BY '.$_param['order'] : '';
@@ -81,8 +82,8 @@ class DB {
 		    }
 		    $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
 		}
-		$_sql = "select $_selectFields from {$this->_tables[0]} $_isEnd $_order $_limit";
-		//echo $_sql;
+		$_sql = "select $_selectFields from $_tables[0] $_isEnd $_order $_limit";
+// 		echo $_sql;
 		$_stmt = $this->execute($_sql);
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {
@@ -91,19 +92,19 @@ class DB {
 		return tools::setHtmlString($_result);
 	}
 	
-	protected function delete($_deleteData='') {
+	protected function delete($_tables,$_deleteData='') {
 	    $_isEnd = '';
 	    foreach ($_deleteData as $_key => $_value) {
 	        $_isEnd .= "$_key='$_value' and ";
 	    }
 	    $_isEnd = substr($_isEnd, 0,-4);
-	    $_sql = "delete from {$this->_tables[0]} where $_isEnd";
+	    $_sql = "delete from $_tables[0] where $_isEnd";
 	    $_stmt = $this->execute($_sql);
 	    return $_stmt->rowCount();
 	}
 	
-	protected function total() {
-		$_sql = "select count(*) count from {$this->_tables[0]}";
+	protected function total($_tables) {
+	    $_sql = "select count(*) count from $_tables[0]";
 		$_stmt = $this->execute($_sql);
 		return $_stmt->fetchObject()->count;
 	}

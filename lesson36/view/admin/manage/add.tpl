@@ -19,10 +19,7 @@
 		<dd>确认密码: <input type="password" name="repass" class="text"> ( * )</dd>		
 		<dd>等　　级: <select name="level">
 			<option value="0">--choose a level</option>
-			<option value="1">超级管理员</option>
-			<option value="2">普通管理员</option>
-			<option value="3">商品发布专员</option>
-			<option value="4">订单处理专员</option>
+				{html_options options=$ALLlevel}						
 		</select> ( * )
 
 		</dd>

@@ -7,16 +7,18 @@ class manageModel extends Model{
 		parent::__construct();
 	}
 
-	public function add($_postData='') {
+	public function add($_n1='',$_postData='') {
+	    //数据筛选
 		$_postData = $this->_request->add($this->_fields);
+		//添加其它数据
 		$_postData['pass'] = md5($_postData['pass']);
 		$_postData['last_ip'] = tools::getIP();
 		$_postData['reg_time'] = tools::getDate();
-		//print_r($_postData);
+		//提交父类写入数据库;
 		return parent::add($_postData);
 	}
 
-	public function isOne($_isOneData,$_tables='') {
+	public function isOne($_n1='',$_isOneData,$_tables='') {
 	    return parent::isOne($_isOneData);
 	}
 
@@ -33,14 +35,14 @@ class manageModel extends Model{
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
 	}
 	
-	public function delete($_deleteData='') {
+	public function delete($_n1='',$_deleteData='') {
 	    $_deleteData = $this->_request->delete($this->_fields);
 	    return parent::delete($_deleteData);
 
 	}
 	
 	
-	public function update($_n1='',$_n2='') {
+	public function update($_n3='',$_n1='',$_n2='') {
 
 	    $_oneData = $this->_request->one($this->_fields);
 	    $_requestData = $this->_request->update($this->_fields);
@@ -49,8 +51,8 @@ class manageModel extends Model{
 	    
 	}
 	
-	public function total() {
-		return parent::total();
+	public function total($_n1='') {
+	    return parent::total($_n1='');
 	}
 	
 
