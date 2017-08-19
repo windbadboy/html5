@@ -10,7 +10,7 @@ class manageModel extends Model{
 
 	public function add($_n1='',$_postData='') {
 	    //数据筛选
-		$_postData = $this->_request->add($this->_fields);
+		$_postData = $this->getRequest()->add($this->_fields);
 		//添加其它数据
 		$_postData['pass'] = md5($_postData['pass']);
 		$_postData['last_ip'] = tools::getIP();
@@ -28,24 +28,26 @@ class manageModel extends Model{
 	}
 	
 	public function findAll() {
-		return parent::select(array('id','user','level','login_count','last_ip','last_login'),array('limit'=>$this->_limit,'order'=>'reg_time DESC'));
+	    $this->_tables = array(DB_FREFIX.'manage a',DB_FREFIX.'level b');
+		return parent::select(array('a.id','user','level','login_count','last_ip','last_login','b.level_name'),array('on'=>'a.level=b.id','limit'=>$this->_limit,'order'=>'reg_time DESC'));
 	}
 	
 	public function findOne() {
-	    $_oneData = $this->_request->one($this->_fields);
+	    $_oneData = $this->getRequest()->one($this->_fields);
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
 	}
 	
 	public function delete($_n1='',$_deleteData='') {
-	    $_deleteData = $this->_request->delete($this->_fields);
+	    $_deleteData = $this->getRequest()->delete($this->_fields);
 	    return parent::delete($_deleteData);
 
 	}
 	
 	
 	public function update($_n3='',$_n1='',$_n2='') {
-	    $_oneData = $this->_request->one($this->_fields);
-	    $_requestData = $this->_request->update($this->_fields);
+
+	    $_oneData = $this->getRequest()->one($this->_fields);
+	    $_requestData = $this->getRequest()->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);
 	    return parent::update($_oneData,$_requestData);
 	    

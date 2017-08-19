@@ -1,9 +1,10 @@
-<?
+<?php
 
 class manageAction extends Action {
     private $_levelmodel = null;
 
 	public function __construct() {
+
 		parent::__construct();
 		$this->_levelmodel = new levelModel();
 

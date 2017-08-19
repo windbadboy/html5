@@ -10,7 +10,7 @@ class Model extends DB{
 	protected function __construct() {
 		$this->_DB = parent::getInstance();
 		$this->_check = Factory::setCheck();
-		$this->_request = request::getInstance($this->_check,$this);
+
 
 	}
 
@@ -36,6 +36,10 @@ class Model extends DB{
 	
 	protected function total() {
 	    return $this->_DB->total($this->_tables);
+	}
+	
+	protected function getRequest() {
+	    return request::getInstance($this->_check,$this);
 	}
 	
 	public function setLimit($_limit) {

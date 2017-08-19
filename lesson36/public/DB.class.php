@@ -73,7 +73,9 @@ class DB {
 	}
 	//查询
 	protected function select($_tables,$_fields,$_param = array()) {
-		$_selectFields = implode(',', $_fields);		
+	    $_tablec = isset($_tables[1]) ? $_tables[0].' INNER JOIN '.$_tables[1] : $_tables[0];
+	    $_on = isset($_param['on']) ? 'ON '.$_param['on'] : '';
+	    $_selectFields = implode(',', $_fields);		
 		$_limit = isset($_param['limit']) ? 'LIMIT '.$_param['limit'] : '';
 		$_order = isset($_param['order']) ? 'ORDER BY '.$_param['order'] : '';
 		$_isEnd = '';
@@ -83,7 +85,7 @@ class DB {
 		    }
 		    $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
 		}
-		$_sql = "select $_selectFields from $_tables[0] $_isEnd $_order $_limit";
+		$_sql = "select $_selectFields from $_tablec $_on $_isEnd $_order $_limit";
 // 		echo $_sql;
 		$_stmt = $this->execute($_sql);
 		$_result = array();

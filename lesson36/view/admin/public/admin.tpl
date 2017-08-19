@@ -22,7 +22,7 @@
 <div id="sidebar">
 	<dl style="display:block">
 		<dt>商品</dt>
-			<dd><a href="###">商品1</a></dd>
+			<dd><a href="?a=nav" target="in">导航条列表</a></dd>
 			<dd><a href="###">商品2</a></dd>
 			<dd><a href="###">商品3</a></dd>
 	</dl>
@@ -40,9 +40,9 @@
 	</dl>
 	<dl style="display:none">
 		<dt>System</dt>
-			<dd><a href="?a=manage" target="in">Manager List</a></dd>
-			<dd><a href="###">system2</a></dd>
-			<dd><a href="###">system3</a></dd>
+			<dd><a href="?a=manage" target="in">管理员列表</a></dd>
+			<dd><a href="###">等级列表</a></dd>
+			<dd><a href="###">权限管理</a></dd>
 	</dl>
 </div>
 <div id="main">

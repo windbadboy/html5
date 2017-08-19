@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-15 18:13:23
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-18 10:16:42
          compiled from admin/manage/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<h2><a href="?a=manage&m=add">Add Manager</a>System -- Manager List</h2>
+<h2><a href="?a=manage&m=add">增加管理员</a>系统 -- 管理员列表</h2>
 <div id="list">
 	<table>
 		<tr><th>用户名</th><th>等级</th><th>登录次数</th><th>最后登录IP</th><th>最后登录</th><th>操作</th></tr>
@@ -19,7 +19,7 @@
     foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['value']):
 ?>
 		<tr><td><?php echo $this->_tpl_vars['value']->user; ?>
-</td><td><?php echo $this->_tpl_vars['value']->level; ?>
+</td><td><?php echo $this->_tpl_vars['value']->level_name; ?>
 </td><td><?php echo $this->_tpl_vars['value']->login_count; ?>
 </td><td><?php echo $this->_tpl_vars['value']->last_ip; ?>
 </td><td><?php echo $this->_tpl_vars['value']->last_time; ?>
