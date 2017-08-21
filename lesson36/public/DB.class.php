@@ -95,6 +95,14 @@ class DB {
 		return tools::setHtmlString($_result);
 	}
 	
+	//查询下一个id(auto_increment)
+	protected function nextId($_tables) {
+		$_sql = "SHOW TABLE STATUS like '$_tables[0]'";
+		$_stmt = $this->execute($_sql);
+		return $_stmt->fetchObject()->Auto_increment;
+	}
+	
+	
 	protected function delete($_tables,$_deleteData='') {
 	    $_isEnd = '';
 	    foreach ($_deleteData as $_key => $_value) {

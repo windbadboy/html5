@@ -21,13 +21,17 @@ class Model extends DB{
 	protected function update($_oneData,$_postData) {
 	    return $this->_DB->update($this->_tables,$_oneData,$_postData);
 	}
-
+	
 	protected function isOne($_isOneData) {
 	    return $this->_DB->isOne($this->_tables,$_isOneData);
 	}
 	
 	protected function select($_fields,$_param = array()) {
 	    return $this->_DB->select($this->_tables,$_fields,$_param);
+	}
+	
+	protected function nextId() {
+		return $this->_DB->nextId($this->_tables);
 	}
 	
 	protected function delete($_deleteData='') {

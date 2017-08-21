@@ -11,6 +11,7 @@ class navModel extends Model{
     public function add($_n1='',$_postData='') {
         //数据筛选
         $_postData = $this->getRequest()->add($this->_fields);
+        $_postData['sort'] = $this->nextId();
         //提交父类写入数据库;
         return parent::add($_postData);
     }

@@ -5,13 +5,12 @@
 	<title>Online Shop Background Management</title>
 	<link rel="stylesheet" type="text/css" href="view/admin/style/basic.css" />	
 	<link rel="stylesheet" type="text/css" href="view/admin/style/nav.css" />
-
+	<script type="text/javascript" src="view/admin/js/nav.js"></script>
 
 </head>
 <body>
 <h2><a href="?a=nav">返回导航条列表</a>商品 -- 添加导航</h2>
-<form action="?a=nav&m=add" name="nav" method="post">
-<input type="hidden" id="flag" name="flag">
+<form action="?a=nav&m=add" name="add" method="post">
 	<dl class="form">
 		<dd>名　　称: <input type="text" name="name" class="text"> ( * )</dd>
 		<dd><span class="middle">简　　介:</span><textarea name="info"></textarea></dd>
