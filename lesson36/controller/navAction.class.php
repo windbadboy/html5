@@ -6,6 +6,8 @@ class navAction extends Action {
     }
     
     public function index() {
+        parent::page();
+        $this->_tpl->assign('ALLNav',$this->_model->findAll());
         $this->_tpl->display(SMARTY_ADMIN.'nav/show.tpl');
     }
     
@@ -19,6 +21,7 @@ class navAction extends Action {
     }
     
     public function delete() {
+        if(isset($_GET['id']) && !validate::isNullString($_GET['id'])) $this->_model->delete() ? $this->_redirect->succ(tools::getPrevPage(),'删除数据成功') : $this->_redirect->error('删除数据失败');
         
     }
 }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-19 11:17:14
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-21 19:42:43
          compiled from admin/nav/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,19 @@
 <div id="list">
 	<table>
 		<tr><th>名称</th><th>简介</th><th>子类</th><th>排序</th><th>操作</th></tr>
+		<?php $_from = $this->_tpl_vars['ALLNav']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['item']):
+?>
+		<tr><td><?php echo $this->_tpl_vars['item']->name; ?>
+</td><td><?php echo $this->_tpl_vars['item']->info; ?>
+</td><td><?php echo $this->_tpl_vars['item']->sid; ?>
+</td><td><?php echo $this->_tpl_vars['item']->sort; ?>
+</td><td><a href="?a=nav&m=update&id=<?php echo $this->_tpl_vars['item']->id; ?>
+"><img src="view/admin/images/edit.gif" alt="edit" title="edit"></a> <a href="?a=nav&m=delete&id=<?php echo $this->_tpl_vars['item']->id; ?>
+" onclick="return confirm('你真的要删除吗？') ? true : false"><img src="view/admin/images/drop.gif" alt="delete" title="delete"></a></td></tr>	
+		<?php endforeach; else: ?>
+		<tr><td colspan="5">没有数据！</td></tr>
+		<?php endif; unset($_from); ?>	
 	</table>
 </div>
 <div id="page"><?php echo $this->_tpl_vars['page']; ?>

@@ -13,6 +13,11 @@
 <div id="list">
 	<table>
 		<tr><th>名称</th><th>简介</th><th>子类</th><th>排序</th><th>操作</th></tr>
+		{foreach from=$ALLNav item=item}
+		<tr><td>{$item->name}</td><td>{$item->info}</td><td>{$item->sid}</td><td>{$item->sort}</td><td><a href="?a=nav&m=update&id={$item->id}"><img src="view/admin/images/edit.gif" alt="edit" title="edit"></a> <a href="?a=nav&m=delete&id={$item->id}" onclick="return confirm('你真的要删除吗？') ? true : false"><img src="view/admin/images/drop.gif" alt="delete" title="delete"></a></td></tr>	
+		{foreachelse}
+		<tr><td colspan="5">没有数据！</td></tr>
+		{/foreach}	
 	</table>
 </div>
 <div id="page">{$page}</div>

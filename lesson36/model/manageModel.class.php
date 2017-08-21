@@ -19,9 +19,7 @@ class manageModel extends Model{
 		return parent::add($_postData);
 	}
 
-	public function isOne($_isOneData) {
-	    return parent::isOne($_isOneData);
-	}
+
 
 	public function isUser() {
 		$this->_check->ajax($this);
