@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-22 17:08:17
+         compiled from admin/nav/update.tpl */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +13,13 @@
 </head>
 <body>
 <h2><a href="?a=nav">返回导航条列表</a>商品 -- 更新导航条</h2>
-<form action="?a=nav&m=update&id={$oneNav[0]->id}" name="update" method="post">
+<form action="?a=nav&m=update&id=<?php echo $this->_tpl_vars['oneNav'][0]->id; ?>
+" name="update" method="post">
 	<dl class="form">
-		<dd>名　　称: {$oneNav[0]->name}</dd>
-		<dd>简　　介: <textarea name="info">{$oneNav[0]->info}</textarea></dd>
+		<dd>名　　称: <?php echo $this->_tpl_vars['oneNav'][0]->name; ?>
+</dd>
+		<dd>简　　介: <textarea name="info"><?php echo $this->_tpl_vars['oneNav'][0]->info; ?>
+</textarea></dd>
 
 
 		</dd>

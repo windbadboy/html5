@@ -37,14 +37,16 @@ class request {
 	public function delete($_fields) {
         $_deleteData = array();
         $_deleteData = $this->selectData($_GET, $_fields);
-        if(!$this->_check->deleteCheck($this->_model,$_deleteData)) $this->check();
+        if(!$this->_check->oneCheck($this->_model,$_deleteData)) $this->check();
         return $_deleteData;
 	}
 	//检查数据是否存在
 	public function one($_fields) {
 	    $_oneData = array();
+	    //根据传递过来的$_fields组成新数组
 	    $_oneData = $this->selectData($_GET, $_fields);
 	    if(!$this->_check->oneCheck($this->_model,$_oneData)) $this->check();
+	    //print_r($_oneData);
 	    return $_oneData;
 	}
 	//检验数据全法性
@@ -56,7 +58,7 @@ class request {
 	    exit();
 	}
 	
-	//筛选数据
+	//筛选数据,返回新构建数组
 	private function selectData($_requestData,$_fields) {
 	    $_selectData = array();
 	    foreach ($_requestData as $_key=>$_value) {

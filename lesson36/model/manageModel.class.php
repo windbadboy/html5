@@ -35,11 +35,7 @@ class manageModel extends Model{
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
 	}
 	
-	public function delete($_n1='',$_deleteData='') {
-	    $_deleteData = $this->getRequest()->delete($this->_fields);
-	    return parent::delete($_deleteData);
 
-	}
 	
 	
 	public function update($_n3='',$_n1='',$_n2='') {

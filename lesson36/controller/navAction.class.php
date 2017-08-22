@@ -17,7 +17,14 @@ class navAction extends Action {
     }
     
     public function update() {
-        $this->_tpl->display(SMARTY_ADMIN.'nav/update.tpl');
+        //修改数据
+        if(isset($_POST['send'])) $this->_model->update() ? $this->_redirect->succ(tools::getPrevPage(),'修改数据成功') : $this->_redirect->error('修改数据失败');
+        //得到update页面所需ID数据
+        if(isset($_GET['id'])) {
+            //print_r($this->_model->findOne());
+            $this->_tpl->assign('oneNav',$this->_model->findOne());
+            $this->_tpl->display(SMARTY_ADMIN.'nav/update.tpl');
+        }
     }
     
     public function delete() {

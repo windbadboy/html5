@@ -18,14 +18,16 @@ class redirect {
 		$this->_tpl = TPL::getInstance();
 		$this->_tpl->assign('message',$_message);
 		$this->_tpl->assign('url',$_url);
-		$this->_tpl->display(SMARTY_ADMIN.'public/succ.tpl');			
+		$this->_tpl->display(SMARTY_ADMIN.'public/succ.tpl');
+		exit();
 	}
 
 	public function error($_message) {
 		$this->_tpl = TPL::getInstance();
 		$this->_tpl->assign('errorinfo',$_message);
 		$this->_tpl->assign('prev',tools::getPrevPage());
-		$this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');			
+		$this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');		
+		exit();
 	}
 
 }

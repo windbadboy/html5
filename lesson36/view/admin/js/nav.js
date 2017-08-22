@@ -23,16 +23,12 @@ function addNav() {
 	return true;
 }
 
-function updateManage() {
+function updateNav() {
 	fm = document.update;
 
-	if(fm.pass.value != fm.repass.value) {
-		alert('密码不一致。');
-		fm.pass.focus();
-		return false;
-	}
-	if(fm.level.value ==0) {
-		alert('请选择一个角色。');
+	if(fm.info.value.length > 200) {
+		alert('简介不得超过200个字符.');
+		fm.info.focus();
 		return false;
 	}
 	

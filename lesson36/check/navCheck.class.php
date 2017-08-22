@@ -21,16 +21,15 @@ class navCheck extends Check{
         }
         return $this->_flag;
     }
-    //删除数据合法性检查
-    public function deleteCheck($_model,$_requestData='') {
-        if(!$_model->isOne(array('id'=>$_requestData['id']))) {
-            $this->_message[] = '未找到该用户id，删除失败.';
+    //更新数据合法性检查
+    public function updateCheck($_model,$_requestData='') {
+        if(self::checkStrLength($_requestData['info'],200,'max')) {
+            $this->_message[] = '不能多于200个字符.';
             $this->_flag = false;
         }
-        
-        
         return $this->_flag;
     }
+
 }
 
 

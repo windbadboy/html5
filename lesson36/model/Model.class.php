@@ -32,9 +32,7 @@ class Model extends DB{
 		return $this->_DB->nextId($this->_tables);
 	}
 	
-	protected function delete($_deleteData='') {
-	    return $this->_DB->delete($this->_tables,$_deleteData);
-	}
+
 	
 	protected function total() {
 	    return $this->_DB->total($this->_tables);
@@ -43,6 +41,14 @@ class Model extends DB{
 	protected function getRequest() {
 	    return request::getInstance($this->_check,$this);
 	}
+	
+	
+	//删除指定数据
+	public function delete() {
+	    $_deleteData = $this->getRequest()->delete($this->_fields);
+	    return $this->_DB->delete($this->_tables,$_deleteData);
+	}
+	
 	public function isOne($_isOneData) {
 	    return $this->_DB->isOne($this->_tables,$_isOneData);
 	}
