@@ -14,11 +14,15 @@ class redirect {
 	private function __construct() {}
 	private function __clone() {}
 
-	public function succ($_url,$_message) {
-		$this->_tpl = TPL::getInstance();
-		$this->_tpl->assign('message',$_message);
-		$this->_tpl->assign('url',$_url);
-		$this->_tpl->display(SMARTY_ADMIN.'public/succ.tpl');
+	public function succ($_url,$_message='') {
+	    if(!empty($_message)) {
+	        $this->_tpl = TPL::getInstance();
+	        $this->_tpl->assign('message',$_message);
+	        $this->_tpl->assign('url',$_url);
+	        $this->_tpl->display(SMARTY_ADMIN.'public/succ.tpl');
+	    }else {
+	        header('Location:'.$_url);
+	    }
 		exit();
 	}
 

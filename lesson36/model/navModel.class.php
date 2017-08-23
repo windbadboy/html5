@@ -19,7 +19,7 @@ class navModel extends Model{
     //查找所有数据
     public function findAll() {
         $this->_tables = array(DB_FREFIX.'nav a');
-        return parent::select(array('id','name','info','sort','sid'),array('limit'=>$this->_limit,'order'=>'sort DESC'));
+        return parent::select(array('id','name','info','sort','sid'),array('limit'=>$this->_limit,'order'=>'sort ASC'));
     }
     //修改数据
     public function update($_n3='',$_n1='',$_n2='') {
@@ -36,6 +36,15 @@ class navModel extends Model{
     //获取总记录数
     public function total($_n1='') {
         return parent::total($_n1='');
+    }
+    
+    //排序
+    public function sort() {
+        foreach($_POST['sort'] as $_key => $_value) {
+            if(!is_numeric($_value)) continue;
+            parent::update(array('id'=>$_key), array('sort'=>$_value));
+        }
+        return true;
     }
 
 }
