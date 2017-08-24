@@ -13,6 +13,16 @@ body {
 	background: #DDEEF2;
 }
 
+a {
+	text-decoration: none;
+	color: #335B64;
+	font-size: 12px;	
+}
+
+a:hover {
+	color: #f60;
+}
+
 ul {
 	list-style-type: none;
 }

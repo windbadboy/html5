@@ -13,6 +13,8 @@ class navAction extends Action {
     
     public function add() {
         if(validate::isArray($_POST) && validate::isNull($_POST)) $this->_model->add() ? $this->_redirect->succ('?a=nav','增加导航成功') : $this->_redirect->error('增加导航失败');
+        //print_r($this->_model->findOne());
+        if(isset($_GET['id'])) $this->_tpl->assign('oneNav',$this->_model->findOne());
         $this->_tpl->display(SMARTY_ADMIN.'nav/add.tpl');
     }
     

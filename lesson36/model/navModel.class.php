@@ -18,8 +18,9 @@ class navModel extends Model{
     
     //查找所有数据
     public function findAll() {
+        $_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0;  
         $this->_tables = array(DB_FREFIX.'nav a');
-        return parent::select(array('id','name','info','sort','sid'),array('limit'=>$this->_limit,'order'=>'sort ASC'));
+        return parent::select(array('id','name','info','sort','sid'),array('where'=>array('sid'=>$_sid),'limit'=>$this->_limit,'order'=>'sort ASC'));
     }
     //修改数据
     public function update($_n3='',$_n1='',$_n2='') {
@@ -27,7 +28,7 @@ class navModel extends Model{
         $_requestData = $this->getRequest()->update($this->_fields);
         return parent::update($_oneData,$_requestData);        
     }
-    
+    //查询一条数据，并返回数组
     public function findOne() {
         $_oneData = $this->getRequest()->one($this->_fields);
         return parent::select(array('id','name','info','sort','sid'),array('where'=>$_oneData,'limit'=>'1'));
@@ -35,7 +36,8 @@ class navModel extends Model{
     
     //获取总记录数
     public function total($_n1='') {
-        return parent::total($_n1='');
+        $_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0; 
+        return parent::total(array('where'=>array('sid'=>$_sid)));
     }
     
     //排序

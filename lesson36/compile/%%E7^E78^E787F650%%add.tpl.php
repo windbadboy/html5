@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-21 15:28:29
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-24 18:56:28
          compiled from admin/nav/add.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,11 @@
 <body>
 <h2><a href="?a=nav">返回导航条列表</a>商品 -- 添加导航</h2>
 <form action="?a=nav&m=add" name="add" method="post">
+	<input type="hidden" name="sid" value="<?php echo $this->_tpl_vars['oneNav'][0]->id; ?>
+">
 	<dl class="form">
+		<?php if ($this->_tpl_vars['oneNav']): ?><dd>主类名称: <?php echo $this->_tpl_vars['oneNav'][0]->name; ?>
+</dd><?php endif; ?>
 		<dd>名　　称: <input type="text" name="name" class="text"> ( * )</dd>
 		<dd><span class="middle">简　　介:</span><textarea name="info"></textarea></dd>
 

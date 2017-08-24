@@ -34,8 +34,8 @@ class Model extends DB{
 	
 
 	
-	protected function total() {
-	    return $this->_DB->total($this->_tables);
+	protected function total($_param = array()) {
+	    return $this->_DB->total($this->_tables,$_param);
 	}
 	
 	protected function getRequest() {

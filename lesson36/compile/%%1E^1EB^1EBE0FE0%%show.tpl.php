@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-23 18:35:41
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-24 19:11:46
          compiled from admin/nav/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +21,9 @@
 ?>
 		<tr><td><?php echo $this->_tpl_vars['item']->name; ?>
 </td><td><?php echo $this->_tpl_vars['item']->info; ?>
-</td><td><?php echo $this->_tpl_vars['item']->sid; ?>
-</td><td><input type="text"class="sort" name="sort[<?php echo $this->_tpl_vars['item']->id; ?>
+</td><td><a href="?a=nav&sid=<?php echo $this->_tpl_vars['item']->id; ?>
+">查看</a> | <a href="?a=nav&m=add&id=<?php echo $this->_tpl_vars['item']->id; ?>
+">添加</a></td><td><input type="text"class="sort" name="sort[<?php echo $this->_tpl_vars['item']->id; ?>
 ]" value=<?php echo $this->_tpl_vars['item']->sort; ?>
 ></td><td><a href="?a=nav&m=update&id=<?php echo $this->_tpl_vars['item']->id; ?>
 "><img src="view/admin/images/edit.gif" alt="edit" title="edit"></a> <a href="?a=nav&m=delete&id=<?php echo $this->_tpl_vars['item']->id; ?>

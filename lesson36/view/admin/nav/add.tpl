@@ -11,7 +11,9 @@
 <body>
 <h2><a href="?a=nav">返回导航条列表</a>商品 -- 添加导航</h2>
 <form action="?a=nav&m=add" name="add" method="post">
+	<input type="hidden" name="sid" value="{$oneNav[0]->id}">
 	<dl class="form">
+		{if $oneNav}<dd>主类名称: {$oneNav[0]->name}</dd>{/if}
 		<dd>名　　称: <input type="text" name="name" class="text"> ( * )</dd>
 		<dd><span class="middle">简　　介:</span><textarea name="info"></textarea></dd>
 

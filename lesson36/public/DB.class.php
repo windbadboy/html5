@@ -116,8 +116,16 @@ class DB {
 	    return $_stmt->rowCount();
 	}
 	
-	protected function total($_tables) {
-	    $_sql = "select count(*) count from $_tables[0]";
+	protected function total($_tables,$_param = array()) {
+	    $_isEnd = '';
+	    if(isset($_param['where'])) {
+	        foreach ($_param['where'] as $_key=>$_value) {
+	            $_isEnd .= "$_key='$_value' and ";
+	        }
+	        $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
+	    }
+	    
+	    $_sql = "select count(*) count from $_tables[0] $_isEnd";
 		$_stmt = $this->execute($_sql);
 		return $_stmt->fetchObject()->count;
 	}
