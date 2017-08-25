@@ -30,6 +30,10 @@ class navModel extends Model{
     }
     //查询一条数据，并返回数组
     public function findOne() {
+        if(isset($_GET['sid'])) {
+            $_sid = tools::setHtmlString($_GET['sid']);
+            return parent::select(array('id','name','info','sort','sid'),array('where'=>array('id'=>$_sid),'limit'=>'1'));
+        }
         $_oneData = $this->getRequest()->one($this->_fields);
         return parent::select(array('id','name','info','sort','sid'),array('where'=>$_oneData,'limit'=>'1'));
     }

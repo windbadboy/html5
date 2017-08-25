@@ -20,6 +20,7 @@
 		<tr><td colspan="5">没有数据！</td></tr>
 		{/foreach}	
 		<tr><td></td><td></td><td></td><td><input type="submit" value="排序" name="send"></td><td></td></tr>
+		{if $oneNav}<tr><td colspan="5">主类名称:[{$oneNav[0]->name}] [<a href="?a=nav">返回</a>]</td></tr>{/if}
 	</table>
 	</form>
 </div>

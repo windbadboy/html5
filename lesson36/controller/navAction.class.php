@@ -7,6 +7,7 @@ class navAction extends Action {
     
     public function index() {
         parent::page();
+        if(isset($_GET['sid'])) $this->_tpl->assign('oneNav',$this->_model->findOne());
         $this->_tpl->assign('ALLNav',$this->_model->findAll());
         $this->_tpl->display(SMARTY_ADMIN.'nav/show.tpl');
     }

@@ -39,6 +39,7 @@ class tools {
 	}
 	//html过滤
 	static public function setHtmlString($_data) {
+	    $_string = '';
 	    if (is_array($_data)) {
 	        foreach ($_data as $_key=>$_value) {
 	            $_string[$_key] = self::setHtmlString($_value);  //递归

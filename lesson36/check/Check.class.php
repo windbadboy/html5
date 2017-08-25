@@ -10,7 +10,7 @@ class check extends validate{
 	}
 	//指定数据合法性检查
 	public function oneCheck($_model,$_requestData='') {
-	    if(!$_model->isOne(array('id'=>$_requestData['id']))) {
+	    if(!$_model->isOne($_requestData)) {
 	        $this->_message[] = '未找到指定数据.';
 	        $this->_flag = false;
 	    }
