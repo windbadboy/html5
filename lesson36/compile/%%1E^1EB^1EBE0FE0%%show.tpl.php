@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-25 15:34:06
+<?php /* Smarty version 2.6.25-dev, created on 2017-08-25 19:31:00
          compiled from admin/nav/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
 		<?php endforeach; else: ?>
 		<tr><td colspan="5">没有数据！</td></tr>
 		<?php endif; unset($_from); ?>	
-		<tr><td></td><td></td><td></td><td><input type="submit" value="排序" name="send"></td><td></td></tr>
+		<?php if ($this->_tpl_vars['ALLNav']): ?><tr><td></td><td></td><td></td><td><input type="submit" value="排序" name="send"></td><td></td></tr><?php endif; ?>
 		<?php if ($this->_tpl_vars['oneNav']): ?><tr><td colspan="5">主类名称:[<?php echo $this->_tpl_vars['oneNav'][0]->name; ?>
 ] [<a href="?a=nav">返回</a>]</td></tr><?php endif; ?>
 	</table>

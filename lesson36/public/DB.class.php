@@ -87,7 +87,7 @@ class DB {
 		    $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
 		}
 		$_sql = "select $_selectFields from $_tablec $_on $_isEnd $_order $_limit";
- 		echo $_sql;
+// 		echo $_sql;
 		$_stmt = $this->execute($_sql);
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {
