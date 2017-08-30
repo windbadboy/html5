@@ -15,6 +15,10 @@ class adminAction extends Action {
 	public function main() {
 		$this->_tpl->display(SMARTY_ADMIN.'public/main.tpl');
 	}
+	
+	public function login() {
+	    $this->_tpl->display(SMARTY_ADMIN.'public/login.tpl');
+	}
 
 
 }

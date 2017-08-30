@@ -1,10 +1,12 @@
 <?php
 
 class navModel extends Model{
+    private $_sid = 0;
     public function __construct() {
         parent::__construct();
         $this->_fields = array('id','name','info','sort','sid');
         $this->_tables = array(DB_FREFIX.'nav');
+        $this->_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0;
         
     }
     
@@ -18,9 +20,9 @@ class navModel extends Model{
     
     //查找所有数据
     public function findAll() {
-        $_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0;  
+
         $this->_tables = array(DB_FREFIX.'nav a');
-        return parent::select(array('id','name','info','sort','sid'),array('where'=>array('sid'=>$_sid),'limit'=>$this->_limit,'order'=>'sort ASC'));
+        return parent::select(array('id','name','info','sort','sid'),array('where'=>array('sid'=>$this->_sid),'limit'=>$this->_limit,'order'=>'sort ASC'));
     }
     //修改数据
     public function update($_n3='',$_n1='',$_n2='') {
@@ -31,8 +33,8 @@ class navModel extends Model{
     //查询一条数据，并返回数组
     public function findOne() {
         if(isset($_GET['sid'])) {
-            $_sid = tools::setHtmlString($_GET['sid']);
-            return parent::select(array('id','name','info','sort','sid'),array('where'=>array('id'=>$_sid),'limit'=>'1'));
+            $_sid = tools::setHtmlString($this->_sid);
+            return parent::select(array('id','name','info','sort','sid'),array('where'=>array('id'=>$this->_sid),'limit'=>'1'));
         }
         $_oneData = $this->getRequest()->one($this->_fields);
         return parent::select(array('id','name','info','sort','sid'),array('where'=>$_oneData,'limit'=>'1'));
@@ -40,8 +42,7 @@ class navModel extends Model{
     
     //获取总记录数
     public function total($_n1='') {
-        $_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0; 
-        return parent::total(array('where'=>array('sid'=>$_sid)));
+        return parent::total(array('where'=>array('sid'=>$this->_sid)));
     }
     
     //排序
