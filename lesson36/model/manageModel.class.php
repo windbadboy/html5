@@ -1,11 +1,12 @@
 <?php
 
 class manageModel extends Model{
+
 	public function __construct() {
 		parent::__construct();
 		$this->_fields = array('id','user','pass','level','login_count','last_ip','last_login','reg_time');
 		$this->_tables = array(DB_FREFIX.'manage');
-
+        $this->_check = new ManageCheck();
 	}
 
 	public function add($_n1='',$_postData='') {
@@ -35,7 +36,11 @@ class manageModel extends Model{
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
 	}
 	
-
+    public function findLogin() {
+        $this->_tables = array(DB_FREFIX.'manage a',DB_FREFIX.'level b');
+        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array('a.user'=>$_POST['user']),'order'=>'reg_time DESC'));
+        
+    }
 	
 	
 	public function update($_n3='',$_n1='',$_n2='') {
@@ -51,6 +56,9 @@ class manageModel extends Model{
 	    return parent::total($_n1='');
 	}
 	
+	public function login() {
+	  return  $this->getRequest()->login();
+	}
 
 }
 

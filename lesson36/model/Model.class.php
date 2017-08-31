@@ -9,7 +9,7 @@ class Model extends DB{
 	protected $_limit ='';
 	protected function __construct() {
 		$this->_DB = parent::getInstance();
-		$this->_check = Factory::setCheck();
+		//$this->_check = Factory::setCheck();
 
 
 	}

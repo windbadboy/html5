@@ -7,6 +7,7 @@ class navModel extends Model{
         $this->_fields = array('id','name','info','sort','sid');
         $this->_tables = array(DB_FREFIX.'nav');
         $this->_sid = isset($_GET['sid']) ? tools::setHtmlString($_GET['sid']) : 0;
+        $this->_check = new navCheck();
         
     }
     

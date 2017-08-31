@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="header">
-	<p>Hello,Admin [超级管理员] [去首页] [退出]</p>
+	<p>Hello,{$admin.user} [{$admin.level}] [去首页] [退出]</p>
 	<ul>
 		<li class="first"><a href="?a=admin&m=main" target="in">起始页</a></li>
 		<li><a href="javascript:channel(0)">商品</a></li>

@@ -11,9 +11,34 @@ body {
 	margin:120px auto 0 auto;
 }
 
+#login input.text {
+	width: 143px;
+}
+
 #login dl {
 	width: 251px;
 	margin: 0 0 0 auto;
 	color: #fff;
 	padding: 50px 0 0 0;
+}
+
+#login dl dd {
+	margin: 4px 0;
+}
+
+#login dl dd input.submit {
+	background: #fff;
+	border:1px solid #eee;
+	width:210px;
+	height:22px;
+	font-size:12px;
+	cursor:pointer;
+}
+
+#login dl dd.code {
+	padding:0 0 0 63px;
+}
+
+#login dl dd.code img {
+	border:1px solid #eee;
 }

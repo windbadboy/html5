@@ -17,6 +17,15 @@ class request {
 	}
 	private function __construct() {}
 	private function __clone() {}
+	
+	//处理登录
+	public function login() {
+	    if(validate::isArray($_POST) && validate::isNull($_POST)) {
+	        if(!$this->_check->loginCheck($this->_model,$_POST)) $this->check();
+	    }
+	    return true;
+
+	}
 	//增加一条记录
 	public function add($_fields) {
 		$_addData = array();
