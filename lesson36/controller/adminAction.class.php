@@ -23,12 +23,20 @@ class adminAction extends Action {
 	
 	public function login() {
 	    if(isset($_POST['send'])) {
-	        $_login = $this->_manage->findLogin();
-	        $_SESSION['admin']['user'] = $_login[0]->user;
-	        $_SESSION['admin']['level'] = $_login[0]->level_name;
-	        if($this->_manage->login()) $this->_redirect->succ('?a=admin','登录成功');
+	    	if($this->_manage->login()) {
+	    		$_login = $this->_manage->findLogin();
+	    		//	        print_r($_login);
+	    		$this->_manage->loginCount();
+	    		$_SESSION['admin']['user'] = $_login[0]->user;
+	    		$_SESSION['admin']['level'] = $_login[0]->level_name;
+	    		$this->_redirect->succ('?a=admin','登录成功');
+	    	}
 	    }
 	    $this->_tpl->display(SMARTY_ADMIN.'public/login.tpl');
+	}
+	public function logout() {
+		if(isset($_SESSION['admin'])) session_destroy();
+		$this->_redirect->succ('?a=admin&m=login');
 	}
 
 

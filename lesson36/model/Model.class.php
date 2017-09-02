@@ -18,13 +18,13 @@ class Model extends DB{
 	    return $this->_DB->add($this->_tables,$_postData);
 	}
 	
-	protected function update($_oneData,$_postData) {
-	    return $this->_DB->update($this->_tables,$_oneData,$_postData);
+	protected function update(array $_param,$_postData) {
+	    return $this->_DB->update($this->_tables,$_param,$_postData);
 	}
 	
 
 	
-	protected function select($_fields,$_param = array()) {
+	protected function select($_fields,array $_param) {
 	    return $this->_DB->select($this->_tables,$_fields,$_param);
 	}
 	
@@ -44,13 +44,11 @@ class Model extends DB{
 	
 	
 	//删除指定数据
-	public function delete() {
-	    $_deleteData = $this->getRequest()->delete($this->_fields);
-	    return $this->_DB->delete($this->_tables,$_deleteData);
+	public function delete(Array $_param) {
+	    return $this->_DB->delete($this->_tables,$_param);
 	}
-	
-	public function isOne($_isOneData) {
-	    return $this->_DB->isOne($this->_tables,$_isOneData);
+	public function isOne(array $_param) {
+	    return $this->_DB->isOne($this->_tables,$_param);
 	}
 	public function setLimit($_limit) {
 		$this->_limit = $_limit;

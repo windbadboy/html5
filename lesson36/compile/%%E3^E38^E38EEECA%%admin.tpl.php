@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-31 12:54:31
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-01 14:08:53
          compiled from admin/public/admin.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 <div id="header">
 	<p>Hello,<?php echo $this->_tpl_vars['admin']['user']; ?>
  [<?php echo $this->_tpl_vars['admin']['level']; ?>
-] [去首页] [退出]</p>
+] [<a href="?a=index">去首页</a>] [<a href="?a=admin&m=logout">退出</a>]</p>
 	<ul>
 		<li class="first"><a href="?a=admin&m=main" target="in">起始页</a></li>
 		<li><a href="javascript:channel(0)">商品</a></li>

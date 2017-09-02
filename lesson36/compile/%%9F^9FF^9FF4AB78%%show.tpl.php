@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-18 10:16:42
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-01 20:24:20
          compiled from admin/manage/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
 </td><td><?php echo $this->_tpl_vars['value']->level_name; ?>
 </td><td><?php echo $this->_tpl_vars['value']->login_count; ?>
 </td><td><?php echo $this->_tpl_vars['value']->last_ip; ?>
-</td><td><?php echo $this->_tpl_vars['value']->last_time; ?>
+</td><td><?php echo $this->_tpl_vars['value']->last_login; ?>
 </td><td><a href="?a=manage&m=update&id=<?php echo $this->_tpl_vars['value']->id; ?>
 "><img src="view/admin/images/edit.gif" alt="edit" title="edit"></a> <a href="?a=manage&m=delete&id=<?php echo $this->_tpl_vars['value']->id; ?>
 " onclick="return confirm('你真的要删除吗？') ? true : false"><img src="view/admin/images/drop.gif" alt="delete" title="delete"></a></td></tr>

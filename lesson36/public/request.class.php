@@ -19,18 +19,19 @@ class request {
 	private function __clone() {}
 	
 	//处理登录
-	public function login() {
-	    if(validate::isArray($_POST) && validate::isNull($_POST)) {
-	        if(!$this->_check->loginCheck($this->_model,$_POST)) $this->check();
-	    }
+	public function login(array $_param) {
+	        if(!$this->_check->loginCheck($this->_model,$_POST,$_param)) $this->check();
+
 	    return true;
 
 	}
 	//增加一条记录
 	public function add($_fields) {
 		$_addData = array();
-		if(!$this->_check->addCheck($this->_model,$_POST)) $this->check();
+		$_requestData = tools::setFormString($_POST);
+		if(!$this->_check->addCheck($this->_model,$_requestData)) $this->check();
         $_addData = $this->selectData($_POST, $_fields);
+        print_r($_addData);
 		return $_addData;
 	}
 	
@@ -49,14 +50,29 @@ class request {
         if(!$this->_check->oneCheck($this->_model,$_deleteData)) $this->check();
         return $_deleteData;
 	}
+
+// 	$_id = tools::setFormString($_GET['id']);
+// 	$_user = tools::setFormString($_GET['user']);
+// 	$_login = tools::setFormString($_GET['login']);
+// 	$_login = str_replace(",", "','", $_login);
+	
+	//防注入检查
+	public function getParam(array $_param) {
+		$_finishParam=array();
+		foreach ($_param as $_key=>$_value) {
+			if($_key == 'in') $_value = str_replace(",", "','", $_value);
+//			echo $_value;
+			$_finishParam[] = tools::setFormString($_value);
+		}
+		return $_finishParam;
+	}
+	
 	//检查数据是否存在
-	public function one($_fields) {
-	    $_oneData = array();
-	    //根据传递过来的$_fields组成新数组
-	    $_oneData = $this->selectData($_GET, $_fields);
-	    if(!$this->_check->oneCheck($this->_model,$_oneData)) $this->check();
+	public function one(array $_param) {
+	    //根据传递过来的$_fields组成只含有GET包含字段并且存在于$_fields的新数组
+//	    $_oneData = $this->selectData($_GET, $_fields);
+	    if(!$this->_check->oneCheck($this->_model,$_param)) $this->check();
 	    //print_r($_oneData);
-	    return $_oneData;
 	}
 	//检验数据全法性
 	private function check() {

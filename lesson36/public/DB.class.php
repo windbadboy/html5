@@ -43,16 +43,20 @@ class DB {
 
 	}
 	
-	protected function update($_tables,$_oneData,$_postData) {
+	protected function update($_tables,$_param,$_postData) {
 		$_isEnd = '';
-		foreach ($_oneData as $_key => $_value) {
-			$_isEnd .= "$_key='$_value' and ";
+		foreach ($_param as $_key => $_value) {
+			$_isEnd .= $_value.' and ';
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
-
 		$_setData = '';
 		foreach ($_postData as $_key => $_value) {
-			$_setData .= "$_key='$_value',";
+			if(validate::isArray($_value)) {
+				$_setData .= $_key.'='.$_value[0].',';				
+			} else {
+				$_setData .= "$_key='$_value',";				
+			}
+
 		}
 		$_setData = substr($_setData, 0,-1);
 		
@@ -62,18 +66,19 @@ class DB {
 		return $this->execute($_sql)->rowCount();
 	}
 
-	protected function isOne($_tables,$_isOneData) {
+	protected function isOne($_tables,array $_param) {
 		$_isEnd = '';
-		foreach ($_isOneData as $_key => $_value) {
-			$_isEnd .= "$_key='$_value' and ";
+		foreach ($_param as $_key => $_value) {
+			$_isEnd .= "$_value and ";
 		}
 		$_isEnd = substr($_isEnd, 0,-4);
 		$_sql = "select * from $_tables[0] where $_isEnd limit 1";
-		//echo $_sql;
+//		echo $_sql;
+//		exit();
 		return $this->execute($_sql)->rowCount();		
 	}
 	//查询
-	protected function select($_tables,$_fields,$_param = array()) {
+	protected function select($_tables,$_fields,array $_param) {
 	    $_tablec = isset($_tables[1]) ? $_tables[0].' INNER JOIN '.$_tables[1] : $_tables[0];
 	    $_on = isset($_param['on']) ? 'ON '.$_param['on'] : '';
 	    $_selectFields = implode(',', $_fields);		
@@ -82,13 +87,14 @@ class DB {
 		$_isEnd = '';
 		if(isset($_param['where'])) {
 		    foreach ($_param['where'] as $_key=>$_value) {
-		        $_isEnd .= "$_key='$_value' and ";
+		        $_isEnd .= "$_value and ";
 		    }
 		    $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
 		}
 		$_sql = "select $_selectFields from $_tablec $_on $_isEnd $_order $_limit";
- 		echo $_sql;
+// 		echo $_sql;
 		$_stmt = $this->execute($_sql);
+
 		$_result = array();
 		while(!!$_objs = $_stmt->fetchObject()) {
 			$_result[] = $_objs;
@@ -105,10 +111,11 @@ class DB {
 	}
 	
 	
-	protected function delete($_tables,$_deleteData='') {
+	protected function delete($_tables,Array $_deleteData) {
 	    $_isEnd = '';
 	    foreach ($_deleteData as $_key => $_value) {
-	        $_isEnd .= "$_key='$_value' and ";
+	       // $_isEnd .= "$_key='$_value' and ";
+	    	$_isEnd .= "$_value and ";
 	    }
 	    $_isEnd = substr($_isEnd, 0,-4);
 	    $_sql = "delete from $_tables[0] where $_isEnd";

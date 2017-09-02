@@ -32,24 +32,43 @@ class manageModel extends Model{
 	}
 	
 	public function findOne() {
-	    $_oneData = $this->getRequest()->one($this->_fields);
-	    return parent::select(array('id','user','level','pass'),array('where'=>$_oneData,'limit'=>'1'));
+//	    $_oneData = $this->getRequest()->one($this->_fields);
+		//防注入检查，返回数组
+		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
+		$_where = array("id='$_id'");
+		$this->getRequest()->one($_where);
+	    return parent::select(array('id','user','level','pass'),array('where'=>$_where,'limit'=>'1'));
 	}
 	
     public function findLogin() {
         $this->_tables = array(DB_FREFIX.'manage a',DB_FREFIX.'level b');
-        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array('a.user'=>$_POST['user']),'order'=>'reg_time DESC'));
+        
+        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array("a.user='{$_POST['user']}'"),'order'=>'reg_time DESC'));
         
     }
 	
-	
-	public function update($_n3='',$_n1='',$_n2='') {
-
-	    $_oneData = $this->getRequest()->one($this->_fields);
+	public function loginCount() {
+		list($_user) = $this->getRequest()->getParam(array($_POST['user']));
+		$_where = array("user='$_user'");
+		$_updateData['login_count'] = array('login_count+1');
+		$_updateData['last_IP'] = tools::getIP();
+		$_updateData['last_login'] = tools::getDate();
+		parent::update($_where, $_updateData);
+	}
+	public function update() {
+//	    $_oneData = $this->getRequest()->one($this->_fields);
+		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
+		$_where = array("id='$_id'");
 	    $_requestData = $this->getRequest()->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);
-	    return parent::update($_oneData,$_requestData);
+	    return parent::update($_where,$_requestData);
 	    
+	}
+	
+	public function delete() {
+		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
+		$_where = array("id='$_id'");
+		return parent::delete($_where);
 	}
 	
 	public function total($_n1='') {
@@ -57,7 +76,9 @@ class manageModel extends Model{
 	}
 	
 	public function login() {
-	  return  $this->getRequest()->login();
+		list($_user,$_pass) = $this->getRequest()->getParam(array($_POST['user'],$_POST['pass']));
+		$_where = array("user='$_user'","pass='" .md5($_pass). "'");		
+	  return  $this->getRequest()->login($_where);
 	}
 
 }

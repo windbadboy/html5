@@ -9,8 +9,8 @@ class check extends validate{
 		return $this->_message;
 	}
 	//指定数据合法性检查
-	public function oneCheck($_model,$_requestData='') {
-	    if(!$_model->isOne($_requestData)) {
+	public function oneCheck(Model $_model,array $_param) {
+	    if(!$_model->isOne($_param)) {
 	        $this->_message[] = '未找到指定数据.';
 	        $this->_flag = false;
 	    }
