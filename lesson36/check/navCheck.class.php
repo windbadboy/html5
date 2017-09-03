@@ -15,7 +15,7 @@ class navCheck extends Check{
             $this->_message[] = '不能多于4个字符.';
             $this->_flag = false;
         }
-        if($_model->isOne(array('name'=>$_requestData['name']))) {
+        if($_model->isOne(array("name='{$_requestData['name']}'"))) {
             $this->_message[] = '导航名被占用.';
             $this->_flag = false;
         }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-08-25 19:31:00
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-03 22:45:07
          compiled from admin/nav/show.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -21,11 +21,11 @@
 ?>
 		<tr><td><?php echo $this->_tpl_vars['item']->name; ?>
 </td><td><?php echo $this->_tpl_vars['item']->info; ?>
-</td><td><a href="?a=nav&sid=<?php echo $this->_tpl_vars['item']->id; ?>
+</td><td><?php if ($this->_tpl_vars['oneNav']): ?>没有更多分类<?php else: ?><a href="?a=nav&sid=<?php echo $this->_tpl_vars['item']->id; ?>
 ">查看</a> | <a href="?a=nav&m=add&id=<?php echo $this->_tpl_vars['item']->id; ?>
 ">添加</a></td><td><input type="text"class="sort" name="sort[<?php echo $this->_tpl_vars['item']->id; ?>
 ]" value=<?php echo $this->_tpl_vars['item']->sort; ?>
-></td><td><a href="?a=nav&m=update&id=<?php echo $this->_tpl_vars['item']->id; ?>
+><?php endif; ?></td><td><a href="?a=nav&m=update&id=<?php echo $this->_tpl_vars['item']->id; ?>
 "><img src="view/admin/images/edit.gif" alt="edit" title="edit"></a> <a href="?a=nav&m=delete&id=<?php echo $this->_tpl_vars['item']->id; ?>
 " onclick="return confirm('你真的要删除吗？') ? true : false"><img src="view/admin/images/drop.gif" alt="delete" title="delete"></a></td></tr>	
 		<?php endforeach; else: ?>

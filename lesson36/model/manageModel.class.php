@@ -7,6 +7,18 @@ class manageModel extends Model{
 		$this->_fields = array('id','user','pass','level','login_count','last_ip','last_login','reg_time');
 		$this->_tables = array(DB_FREFIX.'manage');
         $this->_check = new ManageCheck();
+        list(
+        		$this->_R['id'],
+        		$this->_R['user'],
+        		$this->_R['pass'],
+        		$this->_R['code']
+        	) =  $this->getRequest()->getParam(
+        			array(
+        					isset($_GET['id']) ? $_GET['id'] : null,
+        					isset($_POST['user']) ? $_POST['user'] : null,
+        					isset($_POST['pass']) ? $_POST['pass'] : null,
+        					isset($_POST['code']) ? $_POST['code'] : null        					
+        			));
 	}
 
 	public function add($_n1='',$_postData='') {
@@ -34,8 +46,8 @@ class manageModel extends Model{
 	public function findOne() {
 //	    $_oneData = $this->getRequest()->one($this->_fields);
 		//防注入检查，返回数组
-		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
-		$_where = array("id='$_id'");
+//		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
+		$_where = array("id='{$this->_R['id']}'");
 		$this->getRequest()->one($_where);
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_where,'limit'=>'1'));
 	}
@@ -43,31 +55,26 @@ class manageModel extends Model{
     public function findLogin() {
         $this->_tables = array(DB_FREFIX.'manage a',DB_FREFIX.'level b');
         
-        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array("a.user='{$_POST['user']}'"),'order'=>'reg_time DESC'));
+        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array("a.user='{$this->_R['user']}'"),'order'=>'reg_time DESC'));
         
     }
 	
 	public function loginCount() {
-		list($_user) = $this->getRequest()->getParam(array($_POST['user']));
-		$_where = array("user='$_user'");
+		$_where = array("user='{$this->_R['user']}'");
 		$_updateData['login_count'] = array('login_count+1');
 		$_updateData['last_IP'] = tools::getIP();
 		$_updateData['last_login'] = tools::getDate();
 		parent::update($_where, $_updateData);
 	}
 	public function update() {
-//	    $_oneData = $this->getRequest()->one($this->_fields);
-		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
-		$_where = array("id='$_id'");
+		$_where = array("id='{$this->_R['id']}'");
 	    $_requestData = $this->getRequest()->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);
-	    return parent::update($_where,$_requestData);
-	    
+	    return parent::update($_where,$_requestData);	    
 	}
 	
 	public function delete() {
-		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
-		$_where = array("id='$_id'");
+		$_where = array("id='{$this->_R['id']}'");
 		return parent::delete($_where);
 	}
 	
@@ -75,10 +82,11 @@ class manageModel extends Model{
 	    return parent::total($_n1='');
 	}
 	
+	//处理登录信息
 	public function login() {
-		list($_user,$_pass) = $this->getRequest()->getParam(array($_POST['user'],$_POST['pass']));
-		$_where = array("user='$_user'","pass='" .md5($_pass). "'");		
-	  return  $this->getRequest()->login($_where);
+
+		$_where = array("user='{$this->_R['user']}'","pass='" .md5($this->_R['pass']). "'");		
+		return  $this->getRequest()->login($_where);
 	}
 
 }

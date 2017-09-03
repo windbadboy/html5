@@ -39,6 +39,7 @@ class DB {
 		$_addFields = implode(',', $_addFields);
 		$_addValues = implode("','", $_addValues);
 		$_sql = "insert into $_tables[0]($_addFields) values('$_addValues')";
+//		echo $_sql;
 		return $this->execute($_sql)->rowCount();
 
 	}
@@ -62,7 +63,6 @@ class DB {
 		
 		$_sql = "UPDATE $_tables[0] set $_setData WHERE $_isEnd LIMIT 1";
 //		echo $_sql;
-
 		return $this->execute($_sql)->rowCount();
 	}
 
@@ -127,7 +127,7 @@ class DB {
 	    $_isEnd = '';
 	    if(isset($_param['where'])) {
 	        foreach ($_param['where'] as $_key=>$_value) {
-	            $_isEnd .= "$_key='$_value' and ";
+	            $_isEnd .= $_value.' and ';
 	        }
 	        $_isEnd = 'WHERE '.substr($_isEnd, 0,-4);
 	    }

@@ -7,6 +7,7 @@ class Model extends DB{
 	protected $_request = null;
 	protected $_check = null;
 	protected $_limit ='';
+	protected $_R = array();
 	protected function __construct() {
 		$this->_DB = parent::getInstance();
 		//$this->_check = Factory::setCheck();
@@ -34,7 +35,7 @@ class Model extends DB{
 	
 
 	
-	protected function total($_param = array()) {
+	protected function total(Array $_param) {
 	    return $this->_DB->total($this->_tables,$_param);
 	}
 	
