@@ -78,8 +78,8 @@ class manageModel extends Model{
 		return parent::delete($_where);
 	}
 	
-	public function total($_n1='') {
-	    return parent::total($_n1='');
+	public function total() {
+	    return parent::total();
 	}
 	
 	//处理登录信息

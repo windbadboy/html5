@@ -15,7 +15,10 @@ class request {
 
 		return self::$_instance;
 	}
-	private function __construct() {}
+	private function __construct() {
+		if(isset($_GET)) $_GET = tools::setFormString($_GET);
+		if(isset($_POST)) $_POST = tools::setFormString($_POST);
+	}
 	private function __clone() {}
 	
 	//处理登录
@@ -28,8 +31,8 @@ class request {
 	//增加一条记录
 	public function add($_fields) {
 		$_addData = array();
-		$_requestData = tools::setFormString($_POST);
-		if(!$this->_check->addCheck($this->_model,$_requestData)) $this->check();
+
+		if(!$this->_check->addCheck($this->_model,$_POST)) $this->check();
         $_addData = $this->selectData($_POST, $_fields);
         print_r($_addData);
 		return $_addData;
@@ -51,17 +54,13 @@ class request {
         return $_deleteData;
 	}
 
-// 	$_id = tools::setFormString($_GET['id']);
-// 	$_user = tools::setFormString($_GET['user']);
-// 	$_login = tools::setFormString($_GET['login']);
-// 	$_login = str_replace(",", "','", $_login);
+
 	
 	//防注入检查
 	public function getParam(array $_param) {
 		$_finishParam=array();
 		foreach ($_param as $_key=>$_value) {
 			if($_key == 'in') $_value = str_replace(",", "','", $_value);
-//			echo $_value;
 			$_finishParam[] = tools::setFormString($_value);
 		}
 		return $_finishParam;

@@ -35,7 +35,7 @@ class Model extends DB{
 	
 
 	
-	protected function total(Array $_param) {
+	protected function total(Array $_param=array()) {
 	    return $this->_DB->total($this->_tables,$_param);
 	}
 	
