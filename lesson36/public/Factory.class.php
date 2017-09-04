@@ -5,6 +5,11 @@ class Factory {
 	static public function setAction()
 	{
 		$_a = self::getA();
+		if(in_array($_a, array('manage','nav','level'))) {
+		    if(!isset($_SESSION['admin']))  {
+		        redirect::getInstance()->succ('?a=admin&m=login');
+		    }
+		}
 		if(!file_exists(ROOT_PATH.'/controller/'.$_a.'Action.class.php')) $_a = 'index';
 		eval('self::$_obj = new '.$_a.'Action();');
 		return self::$_obj;		

@@ -2,7 +2,7 @@
 
 class redirect {
 	static private $_instance = null;
-	static public function getInstance($_tpl) {
+	static public function getInstance(TPL $_tpl = NULL) {
 		if(!(self::$_instance instanceof self))
 		    {
 		    	self::$_instance = new self();
