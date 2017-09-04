@@ -54,6 +54,11 @@ class tools {
 	    }
 	    return $_string;
 	}
+	
+	static public function setRequest() {
+		if(isset($_GET)) $_GET = tools::setFormString($_GET);
+		if(isset($_POST)) $_POST = tools::setFormString($_POST);
+	}
 }
 
 ?>

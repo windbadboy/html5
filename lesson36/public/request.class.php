@@ -5,19 +5,17 @@ class request {
 	private $_check = null;
 	private $_tpl = null;
 	private $_model = null;
-	static public function getInstance(&$_check = null,$_model = null) {
+	static public function getInstance(check &$_check,Model $_model) {
 		if(!(self::$_instance instanceof self))
 		    {
 		    	self::$_instance = new self();
 		   		self::$_instance->_check = $_check;
 		   		self::$_instance->_model = $_model;		    	
 		    }
-
 		return self::$_instance;
 	}
 	private function __construct() {
-		if(isset($_GET)) $_GET = tools::setFormString($_GET);
-		if(isset($_POST)) $_POST = tools::setFormString($_POST);
+		tools::setRequest();
 	}
 	private function __clone() {}
 	
@@ -70,7 +68,7 @@ class request {
 	public function one(array $_param) {
 	    //根据传递过来的$_fields组成只含有GET包含字段并且存在于$_fields的新数组
 //	    $_oneData = $this->selectData($_GET, $_fields);
-	    if(!$this->_check->oneCheck($this->_model,$_param)) $this->check();
+	    return $this->_check->oneCheck($this->_model,$_param);
 	    //print_r($_oneData);
 	}
 	//检验数据全法性

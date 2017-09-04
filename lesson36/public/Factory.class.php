@@ -5,7 +5,7 @@ class Factory {
 	static public function setAction()
 	{
 		$_a = self::getA();
-		if(in_array($_a, array('manage','nav','level'))) {
+		if(validate::inArray($_a, array('manage','nav','level'))) {
 		    if(!isset($_SESSION['admin']))  {
 		        redirect::getInstance()->succ('?a=admin&m=login');
 		    }

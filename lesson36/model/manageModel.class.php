@@ -48,7 +48,7 @@ class manageModel extends Model{
 		//防注入检查，返回数组
 //		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
 		$_where = array("id='{$this->_R['id']}'");
-		$this->getRequest()->one($_where);
+		if(!$this->getRequest()->one($_where)) exit('不存在此数据。');
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_where,'limit'=>'1'));
 	}
 	
