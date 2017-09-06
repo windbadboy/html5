@@ -22,6 +22,8 @@ class manageModel extends Model{
 	}
 
 	public function add($_n1='',$_postData='') {
+	    //检查重复名
+	    if(!$this->_check->addCheck($this,$_POST)) $this->_check->error();
 	    //数据筛选
 		$_postData = $this->getRequest()->add($this->_fields);
 		//添加其它数据
@@ -48,7 +50,7 @@ class manageModel extends Model{
 		//防注入检查，返回数组
 //		list($_id) = $this->getRequest()->getParam(array($_GET['id']));
 		$_where = array("id='{$this->_R['id']}'");
-		if(!$this->getRequest()->one($_where)) exit('不存在此数据。');
+		if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
 	    return parent::select(array('id','user','level','pass'),array('where'=>$_where,'limit'=>'1'));
 	}
 	
@@ -68,6 +70,7 @@ class manageModel extends Model{
 	}
 	public function update() {
 		$_where = array("id='{$this->_R['id']}'");
+		if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
 	    $_requestData = $this->getRequest()->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);
 	    return parent::update($_where,$_requestData);	    

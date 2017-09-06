@@ -1,5 +1,5 @@
 <?php
-
+//request类的职责是过滤数据
 class request {
 	static private $_instance = null;
 	private $_check = null;
@@ -29,10 +29,7 @@ class request {
 	//增加一条记录
 	public function add($_fields) {
 		$_addData = array();
-
-		if(!$this->_check->addCheck($this->_model,$_POST)) $this->check();
         $_addData = $this->selectData($_POST, $_fields);
-        print_r($_addData);
 		return $_addData;
 	}
 	
@@ -71,14 +68,7 @@ class request {
 	    return $this->_check->oneCheck($this->_model,$_param);
 	    //print_r($_oneData);
 	}
-	//检验数据全法性
-	private function check() {
-	    $this->_tpl = TPL::getInstance();
-	    $this->_tpl->assign('errorinfo',$this->_check->getMessage());
-	    $this->_tpl->assign('prev',tools::getPrevPage());
-	    $this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');
-	    exit();
-	}
+
 	
 	//筛选数据,返回新构建数组
 	private function selectData($_requestData,$_fields) {

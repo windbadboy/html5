@@ -20,12 +20,12 @@ class Factory {
 		eval('self::$_obj = new '.$_a.'Model();');
 		return self::$_obj;		
 	}
-	static public function setCheck() {
-		$_a = self::getA();
-		if(file_exists(ROOT_PATH.'/check/'.$_a.'Check.class.php'))
-			eval('self::$_obj = new '.$_a.'Check();');
-		return self::$_obj;		
-	}
+// 	static public function setCheck() {
+// 		$_a = self::getA();
+// 		if(file_exists(ROOT_PATH.'/check/'.$_a.'Check.class.php'))
+// 			eval('self::$_obj = new '.$_a.'Check();');
+// 		return self::$_obj;		
+// 	}
 	
 	static public function getA() {
 		if(isset($_GET['a']) && !empty($_GET['a'])) {
