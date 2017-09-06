@@ -22,8 +22,9 @@ class manageModel extends Model{
 	}
 
 	public function add($_n1='',$_postData='') {
+		$_where = array("user='{$this->_R['user']}'");
 	    //检查重复名
-	    if(!$this->_check->addCheck($this,$_POST)) $this->_check->error();
+	    if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
 	    //数据筛选
 		$_postData = $this->getRequest()->add($this->_fields);
 		//添加其它数据

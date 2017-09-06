@@ -2,28 +2,28 @@
 
 class ManageCheck extends Check {
 	//增加数据合法性检查
-	public function addCheck($_model,$_requestData='') {
-	    if(self::isNullString($_requestData['user'])) {
+	public function addCheck($_model,array $_param) {
+	    if(self::isNullString($_POST['user'])) {
 			$this->_message[] = 'empty username.';
 			$this->_flag = false;
 		}
-		if(self::checkStrLength($_requestData['user'],2,'min')) {
+		if(self::checkStrLength($_POST['user'],2,'min')) {
 			$this->_message[] = 'username need at least 2 letters.';
 			$this->_flag = false;
 		}
-		if(self::checkStrLength($_requestData['user'],20,'max')) {
+		if(self::checkStrLength($_POST['user'],20,'max')) {
 			$this->_message[] = 'username can not have more than 20 letters.';
 			$this->_flag = false;
 		}
-		if(self::checkEquals($_requestData['pass'],$_requestData['repass'])) {
+		if(self::checkEquals($_POST['pass'],$_POST['repass'])) {
 			$this->_message[] = 'Password inconsistency.';
 			$this->_flag = false;
 		}
-		if(self::isNullString($_requestData['level'])) {
+		if(self::isNullString($_POST['level'])) {
 			$this->_message[] = 'user level must have a choice.';
 			$this->_flag = false;
 		}
-		if($_model->isOne(array("user='{$_requestData['user']}'"))) {
+		if($_model->isOne(array($_param['user']))) {
 			$this->_message[] = 'username already exists.';
 			$this->_flag = false;			
 		}
