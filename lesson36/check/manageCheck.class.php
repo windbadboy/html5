@@ -23,7 +23,7 @@ class ManageCheck extends Check {
 			$this->_message[] = 'user level must have a choice.';
 			$this->_flag = false;
 		}
-		if($_model->isOne(array($_param['user']))) {
+		if($_model->isOne($_param)) {
 			$this->_message[] = 'username already exists.';
 			$this->_flag = false;			
 		}
@@ -46,12 +46,12 @@ class ManageCheck extends Check {
 	}
 	
     //登录信息检查
-    public function loginCheck(Model $_model,Array $_param,Array $_whereparam) {
-        if(self::isNullString($_param['user'])) {
+    public function loginCheck(Model $_model,Array $_param) {
+        if(self::isNullString($_POST['user'])) {
             $this->_message[] = '用户名不得为空.';
             $this->_flag = false;
         }
-        if(self::isNullString($_param['pass'])) {
+        if(self::isNullString($_POST['pass'])) {
             $this->_message[] = '密码不得为空.';
             $this->_flag = false;
         }
@@ -63,7 +63,7 @@ class ManageCheck extends Check {
             $this->_message[] = '验证码不正确.';
             $this->_flag = false;
         }
-        if(!$_model->isOne($_whereparam)) {
+        if(!$_model->isOne($_param)) {
             $this->_message[] = '用户名或密码不正确.';
             $this->_flag = false;
         }

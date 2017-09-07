@@ -2,20 +2,20 @@
 
 
 class navCheck extends Check{
-    public function addCheck($_model,$_requestData='') {
-        if(self::isNullString($_requestData['name'])) {
+    public function addCheck($_model,array $_param) {
+        if(self::isNullString($_POST['name'])) {
             $this->_message[] = '名称不允许为空.';
             $this->_flag = false;
         }
-        if(self::checkStrLength($_requestData['name'],2,'min')) {
+        if(self::checkStrLength($_POST['name'],2,'min')) {
             $this->_message[] = '至少2个字符.';
             $this->_flag = false;
         }
-        if(self::checkStrLength($_requestData['name'],4,'max')) {
+        if(self::checkStrLength($_POST['name'],4,'max')) {
             $this->_message[] = '不能多于4个字符.';
             $this->_flag = false;
         }
-        if($_model->isOne(array("name='{$_requestData['name']}'"))) {
+        if($_model->isOne($_param)) {
             $this->_message[] = '导航名被占用.';
             $this->_flag = false;
         }

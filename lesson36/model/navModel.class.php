@@ -10,16 +10,21 @@ class navModel extends Model{
         $this->_check = new navCheck();
         list(
         		$this->_R['sid'],
-        		$this->_R['id']
+        		$this->_R['id'],
+                $this->_R['name']
         		) = $this->getRequest()->getParam(
         		array(
-        				isset($_GET['sid']) ? $_GET['sid'] : 0,
-        				isset($_GET['id']) ? $_GET['id'] : 0
+        				isset($_POST['sid']) ? $_POST['sid'] : 0,
+        				isset($_GET['id']) ? $_GET['id'] : 0,
+        		        isset($_POST['name']) ? $_POST['name'] : 0
         		)
         		);
     }
     
     public function add() {
+        $_where = array("name='{$this->_R['name']}'");
+        //检查重复名
+        if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
         //数据筛选
         $_postData = $this->getRequest()->add($this->_fields);
         $_postData['sort'] = $this->nextId();
@@ -35,6 +40,7 @@ class navModel extends Model{
     //修改数据
     public function update() {
     	$_where = array("id='{$this->_R['id']}'");
+    	if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
         $_requestData = $this->getRequest()->update($this->_fields);
         return parent::update($_where,$_requestData);        
     }
@@ -44,6 +50,7 @@ class navModel extends Model{
             return parent::select(array('id','name','info','sort','sid'),array('where'=>array("id='{$this->_R['sid']}'"),'limit'=>'1'));
         }
         $_where = array("id='{$this->_R['id']}'");
+        if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
         return parent::select(array('id','name','info','sort','sid'),array('where'=>$_where,'limit'=>'1'));
     }
     
@@ -64,6 +71,7 @@ class navModel extends Model{
     //删除
     public function delete() {
     	$_where = array("id='{$this->_R['id']}'");
+    	if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
     	return parent::delete($_where);
     }
 

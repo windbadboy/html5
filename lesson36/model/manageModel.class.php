@@ -57,9 +57,7 @@ class manageModel extends Model{
 	
     public function findLogin() {
         $this->_tables = array(DB_FREFIX.'manage a',DB_FREFIX.'level b');
-        
-        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array("a.user='{$this->_R['user']}'"),'order'=>'reg_time DESC'));
-        
+        return parent::select(array('a.user','b.level_name'),array('on'=>'a.level=b.id','where'=>array("a.user='{$this->_R['user']}'"),'order'=>'reg_time DESC'));        
     }
 	
 	public function loginCount() {
@@ -72,6 +70,7 @@ class manageModel extends Model{
 	public function update() {
 		$_where = array("id='{$this->_R['id']}'");
 		if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
+	    if(!$this->_check->updateCheck($this,$_POST)) $this->check();
 	    $_requestData = $this->getRequest()->update($this->_fields);
 	    $_requestData['pass'] = md5($_requestData['pass']);
 	    return parent::update($_where,$_requestData);	    
@@ -88,9 +87,10 @@ class manageModel extends Model{
 	
 	//处理登录信息
 	public function login() {
-
 		$_where = array("user='{$this->_R['user']}'","pass='" .md5($this->_R['pass']). "'");		
-		return  $this->getRequest()->login($_where);
+		if(!$this->_check->loginCheck($this,$_where)) $this->_check->error();
+		return true;
+//		return  $this->getRequest()->login($_where);
 	}
 
 }

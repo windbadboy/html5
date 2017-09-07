@@ -20,12 +20,12 @@ class request {
 	private function __clone() {}
 	
 	//处理登录
-	public function login(array $_param) {
-	        if(!$this->_check->loginCheck($this->_model,$_POST,$_param)) $this->check();
+// 	public function login(array $_param) {
+// 	        if(!$this->_check->loginCheck($this->_model,$_POST,$_param)) $this->check();
 
-	    return true;
+// 	    return true;
 
-	}
+// 	}
 	//增加一条记录
 	public function add($_fields) {
 		$_addData = array();
@@ -36,7 +36,6 @@ class request {
 	//更新一条记录
 	public function update($_fields) {	
 		$_updateData = array();
-		if(!$this->_check->updateCheck($this->_model,$_POST)) $this->check();
 		$_updateData = $this->selectData($_POST, $_fields);
 		return $_updateData;		
 	}
