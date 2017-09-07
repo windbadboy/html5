@@ -22,8 +22,8 @@ class navCheck extends Check{
         return $this->_flag;
     }
     //更新数据合法性检查
-    public function updateCheck($_model,$_requestData='') {
-        if(self::checkStrLength($_requestData['info'],200,'max')) {
+    public function updateCheck($_model) {
+        if(self::checkStrLength($_POST['info'],200,'max')) {
             $this->_message[] = '不能多于200个字符.';
             $this->_flag = false;
         }

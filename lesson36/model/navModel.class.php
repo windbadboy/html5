@@ -11,12 +11,14 @@ class navModel extends Model{
         list(
         		$this->_R['sid'],
         		$this->_R['id'],
-                $this->_R['name']
+                $this->_R['name'],
+        		$this->_R['getsid']
         		) = $this->getRequest()->getParam(
         		array(
         				isset($_POST['sid']) ? $_POST['sid'] : 0,
         				isset($_GET['id']) ? $_GET['id'] : 0,
-        		        isset($_POST['name']) ? $_POST['name'] : 0
+        		        isset($_POST['name']) ? $_POST['name'] : 0,
+        				isset($_GET['sid']) ? $_GET['sid'] : 0,        				
         		)
         		);
     }
@@ -35,19 +37,20 @@ class navModel extends Model{
     //查找所有数据
     public function findAll() {
         $this->_tables = array(DB_FREFIX.'nav a');
-        return parent::select(array('id','name','info','sort','sid'),array('where'=>array("sid='{$this->_R['sid']}'"),'limit'=>$this->_limit,'order'=>'sort ASC'));
+        return parent::select(array('id','name','info','sort','sid'),array('where'=>array("sid='{$this->_R['getsid']}'"),'limit'=>$this->_limit,'order'=>'sort ASC'));
     }
     //修改数据
     public function update() {
     	$_where = array("id='{$this->_R['id']}'");
-    	if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
+    	if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
+    	if(!$this->_check->updateCheck($this)) $this->_check->error();
         $_requestData = $this->getRequest()->update($this->_fields);
         return parent::update($_where,$_requestData);        
     }
     //查询一条数据，并返回数组
     public function findOne() {
         if(isset($_GET['sid'])) {
-            return parent::select(array('id','name','info','sort','sid'),array('where'=>array("id='{$this->_R['sid']}'"),'limit'=>'1'));
+            return parent::select(array('id','name','info','sort','sid'),array('where'=>array("id='{$this->_R['getsid']}'"),'limit'=>'1'));
         }
         $_where = array("id='{$this->_R['id']}'");
         if(!$this->_check->oneCheck($this, $_where)) $this->_check->error();
@@ -71,7 +74,7 @@ class navModel extends Model{
     //删除
     public function delete() {
     	$_where = array("id='{$this->_R['id']}'");
-    	if(!$this->_check->addCheck($this,$_where)) $this->_check->error();
+    	if(!$this->_check->oneCheck($this,$_where)) $this->_check->error();
     	return parent::delete($_where);
     }
 
