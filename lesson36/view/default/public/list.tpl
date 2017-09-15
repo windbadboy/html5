@@ -8,6 +8,8 @@
 
 </head>
 <body>
+
 {include file="default/public/header.tpl"}
+
 </body>
 </html>

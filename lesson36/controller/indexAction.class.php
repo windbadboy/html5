@@ -1,10 +1,17 @@
 <?php
 
 class indexAction extends Action{
+    private $_nav = null;
+    
+    public function __construct() {
+        parent::__construct();
+        $this->_nav = new navModel();
+        
+    }
 
 	public function index() {
-		new userModel();
-		$this->_tpl->assign('name','First Page');
+//	    print_r($this->_nav->findFrontTenNav());
+		$this->_tpl->assign('FrontTenNav',$this->_nav->findFrontTenNav());
 		$this->_tpl->display(SMARTY_FRONT.'public/index.tpl');
 	}
 	

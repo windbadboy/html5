@@ -34,6 +34,16 @@ class navModel extends Model{
         return parent::add($_postData);
     }
     
+    //get front tab data
+    public function findFrontTenNav() {
+        return parent::select(array('id','name'), 
+            array(
+                'where'=>array('sid=0'),
+                'limit'=>'10',
+                'order'=>'sort ASC'
+            ));
+    }
+    
     //查找所有数据
     public function findAll() {
         $this->_tables = array(DB_FREFIX.'nav a');

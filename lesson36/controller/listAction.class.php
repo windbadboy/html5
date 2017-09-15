@@ -1,15 +1,18 @@
 <?php
 
+
 class listAction extends Action{
-
-	public function index() {
-		$this->_tpl->assign('name','列表页');
-		$this->_tpl->display(SMARTY_STYLE.'list.tpl');
-	}
-
-	public function update() {
-		echo 'update.';
-	}
+    private $_nav = null;
+    
+    public function __construct() {
+        parent::__construct();
+        $this->_nav = new navModel();
+        
+    }
+    
+    public function index() {
+        $this->_tpl->assign('FrontTenNav',$this->_nav->findFrontTenNav());
+        $this->_tpl->display(SMARTY_FRONT.'public/list.tpl');
+    }
 }
-
 ?>
