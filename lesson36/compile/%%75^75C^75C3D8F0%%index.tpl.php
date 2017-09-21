@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-18 08:09:12
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-21 08:50:21
          compiled from default/public/index.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -15,8 +15,6 @@ $this->_smarty_include(array('smarty_include_tpl_file' => "default/public/header
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-<div id="sait">
-当前位置:<a href="./">首页</a>
-</div>
+
 </body>
 </html>

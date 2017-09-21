@@ -70,9 +70,19 @@ a:hover {
 	background:url(../images/nav_bg.png) no-repeat;
 }
 
+#nav ul li a.strong {
+	background-position:right;
+	color:#fff;
+}
+
 #nav ul li a:hover {
 	background-position:right;
 	color:#fff;
+}
+
+#nav ul li a.strong {
+	background-position:right;
+	color:#fff;	
 }
 
 #search {

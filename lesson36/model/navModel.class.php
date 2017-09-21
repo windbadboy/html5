@@ -34,6 +34,13 @@ class navModel extends Model{
         return parent::add($_postData);
     }
     
+    //获取具体选择分类
+    public function findFrontMainNav() {
+        $_where = array("id='{$this->_R['id']}'");
+        if(!$this->_check->oneCheck($this, $_where)) $this->_check->error('./');
+        return parent::select(array('id','name'),array('where'=>$_where,'limit'=>1));
+    }
+    
     //get front tab data
     public function findFrontTenNav() {
         return parent::select(array('id','name'), 

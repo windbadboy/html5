@@ -54,7 +54,9 @@
 	text-decoration:underline;
 }
 
-
+#sidebar ul li a span.gray {
+	color:gray;
+}
 #main {
 	margin:10px 0 0 0;	
 	width:785px;

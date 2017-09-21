@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-18 14:43:33
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-20 08:33:21
          compiled from default/public/list.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -23,9 +23,9 @@ unset($_smarty_tpl_vars);
 <div id="sidebar">
 	<h2>女士服装</h2>
 	<ul>
-		<li><a href="###">牛仔裤</a></li>
-		<li><a href="###">牛仔裤</a></li>
-		<li><a href="###">牛仔裤</a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
 	</ul>
 </div>
 

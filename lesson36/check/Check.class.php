@@ -22,11 +22,16 @@ class check extends validate{
 	    
 	    return $this->_flag;
 	}
-	public function error() {
-	    $this->_tpl->assign('errorinfo',$this->_message);
-	    $this->_tpl->assign('prev',tools::getPrevPage());
-	    $this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');
-	    exit();
+	public function error($_url = '') {
+	    if(empty($_url)) {
+	        $this->_tpl->assign('errorinfo',$this->_message);
+	        $this->_tpl->assign('prev',tools::getPrevPage());
+	        $this->_tpl->display(SMARTY_ADMIN.'public/error.tpl');
+	        exit();
+	    } else {
+	        redirect::getInstance()->succ($_url);
+	    }
+
 	}
 	
 	

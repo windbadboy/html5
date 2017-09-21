@@ -4,9 +4,17 @@
 
 <div id="nav">
 	<ul>
-		<li><a href="./">首页</a></li>
+		{if $smarty.get.id}
+			<li><a href="./">首页</a></li>
+		{else}
+			<li><a href="./" class="strong">首页</a></li>		
+		{/if}
 		{foreach from=$FrontTenNav item=value}
-		<li><a href="?a=list&id={$value->id}">{$value->name}</a></li>
+		{if $smarty.get.id == $value->id}
+			<li><a href="?a=list&id={$value->id}" class="strong">{$value->name}</a></li>
+		{else}
+			<li><a href="?a=list&id={$value->id}">{$value->name}</a></li>
+		{/if}	
 		{/foreach}
 	</ul>
 </div>

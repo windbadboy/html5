@@ -17,9 +17,9 @@
 <div id="sidebar">
 	<h2>女士服装</h2>
 	<ul>
-		<li><a href="###">牛仔裤</a></li>
-		<li><a href="###">牛仔裤</a></li>
-		<li><a href="###">牛仔裤</a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
+		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
 	</ul>
 </div>
 
