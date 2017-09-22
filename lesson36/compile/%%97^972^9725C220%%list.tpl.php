@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-20 08:33:21
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-22 10:48:47
          compiled from default/public/list.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -17,15 +17,20 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <div id="sait">
-当前位置:<a href="./">首页</a>&gt;<a href="###">女士服装</a>&gt;<a href="###">牛仔裤</a>
+当前位置:<a href="./">首页</a>&gt;<a href="?a=list&id=<?php echo $this->_tpl_vars['FrontMainNav'][0]->id; ?>
+"><?php echo $this->_tpl_vars['FrontMainNav'][0]->name; ?>
+
 </div>
 
 <div id="sidebar">
 	<h2>女士服装</h2>
 	<ul>
-		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
-		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
-		<li><a href="###">牛仔裤<span class="gray">(1000)</span></a></li>
+		<?php $_from = $this->_tpl_vars['FrontChildNav']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['value']):
+?>
+		<li><a href="###"><?php echo $this->_tpl_vars['value']->name; ?>
+<span class="gray">(1000)</span></a></li>
+		<?php endforeach; endif; unset($_from); ?>
 	</ul>
 </div>
 

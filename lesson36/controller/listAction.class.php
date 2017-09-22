@@ -11,7 +11,7 @@ class listAction extends Action{
     }
     
     public function index() {
-        $this->_nav->findFrontMainNav();
+        $this->_tpl->assign('FrontNav',$this->_nav->findFrontNav());
         $this->_tpl->assign('FrontTenNav',$this->_nav->findFrontTenNav());
         $this->_tpl->display(SMARTY_FRONT.'public/list.tpl');
     }

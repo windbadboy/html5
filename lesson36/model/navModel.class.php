@@ -35,11 +35,31 @@ class navModel extends Model{
     }
     
     //获取具体选择分类
-    public function findFrontMainNav() {
-        $_where = array("id='{$this->_R['id']}'");
-        if(!$this->_check->oneCheck($this, $_where)) $this->_check->error('./');
-        return parent::select(array('id','name'),array('where'=>$_where,'limit'=>1));
+    public function findFrontNav() {
+//         $_where = array("id='{$this->_R['id']}'");
+//         if(!$this->_check->oneCheck($this, $_where)) $this->_check->error('./');
+        $_allNav = $_mainNav = $_childNav = array();
+        $_allNav = parent::select(array('id','name','sid'));
+        foreach ($_allNav as $_value) {
+            if($_value->sid == 0) {
+                $_mainNav[] = $_value->name;
+            } else {
+                $_childNav[] = $_value->name;
+            }
+        }
+        print_r($_mainNav);
+        print_r($_childNav);
+
     }
+    
+    
+    //获取分类的子类
+//     public function findFrontChildNav() {
+//         $_where = array("sid='{$this->_R['id']}'");
+//         return parent::select(array('id','name'),
+//                               array('where'=>$_where)
+//             );
+//     }
     
     //get front tab data
     public function findFrontTenNav() {

@@ -25,7 +25,7 @@ class Model extends DB{
 	
 
 	
-	protected function select($_fields,array $_param) {
+	protected function select($_fields,array $_param=array()) {
 	    return $this->_DB->select($this->_tables,$_fields,$_param);
 	}
 	
