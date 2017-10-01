@@ -11,14 +11,17 @@
 
 {include file="default/public/header.tpl"}
 <div id="sait">
-当前位置:<a href="./">首页</a>&gt;<a href="?a=list&id={$FrontMainNav[0]->id}">{$FrontMainNav[0]->name}
+当前位置:<a href="./">首页</a>
+{foreach from=$FrontNav[0]->sait key=key item=value}
+><a href="?a=list&id={$key}">{$value}</a>
+{/foreach}
 </div>
 
 <div id="sidebar">
-	<h2>女士服装</h2>
+	<h2>{$FrontNav[0]->name}</h2>
 	<ul>
-		{foreach from=$FrontChildNav item=value}
-		<li><a href="###">{$value->name}<span class="gray">(1000)</span></a></li>
+		{foreach from=$FrontNav[0]->child item=value}
+		<li><a href="?a=list&id={$value->id}">{$value->name}<span class="gray">(1000)</span></a></li>
 		{/foreach}
 	</ul>
 </div>

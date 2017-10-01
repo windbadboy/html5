@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-21 08:54:54
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-28 18:34:07
          compiled from default/public/header.tpl */ ?>
 <div id="header">
 	<h1><a href="./">重庆市第十三人民医院</a></h1>
@@ -14,7 +14,7 @@
 		<?php $_from = $this->_tpl_vars['FrontTenNav']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['value']):
 ?>
-		<?php if ($_GET['id'] == $this->_tpl_vars['value']->id): ?>
+		<?php if ($this->_tpl_vars['value']->id == $this->_tpl_vars['FrontNav'][0]->id): ?>
 			<li><a href="?a=list&id=<?php echo $this->_tpl_vars['value']->id; ?>
 " class="strong"><?php echo $this->_tpl_vars['value']->name; ?>
 </a></li>

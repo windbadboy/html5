@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-22 10:48:47
+<?php /* Smarty version 2.6.25-dev, created on 2017-09-28 11:11:03
          compiled from default/public/list.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -17,18 +17,25 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <div id="sait">
-当前位置:<a href="./">首页</a>&gt;<a href="?a=list&id=<?php echo $this->_tpl_vars['FrontMainNav'][0]->id; ?>
-"><?php echo $this->_tpl_vars['FrontMainNav'][0]->name; ?>
-
+当前位置:<a href="./">首页</a>
+<?php $_from = $this->_tpl_vars['FrontNav'][0]->sait; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['value']):
+?>
+><a href="?a=list&id=<?php echo $this->_tpl_vars['key']; ?>
+"><?php echo $this->_tpl_vars['value']; ?>
+</a>
+<?php endforeach; endif; unset($_from); ?>
 </div>
 
 <div id="sidebar">
-	<h2>女士服装</h2>
+	<h2><?php echo $this->_tpl_vars['FrontNav'][0]->name; ?>
+</h2>
 	<ul>
-		<?php $_from = $this->_tpl_vars['FrontChildNav']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+		<?php $_from = $this->_tpl_vars['FrontNav'][0]->child; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['value']):
 ?>
-		<li><a href="###"><?php echo $this->_tpl_vars['value']->name; ?>
+		<li><a href="?a=list&id=<?php echo $this->_tpl_vars['value']->id; ?>
+"><?php echo $this->_tpl_vars['value']->name; ?>
 <span class="gray">(1000)</span></a></li>
 		<?php endforeach; endif; unset($_from); ?>
 	</ul>

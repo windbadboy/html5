@@ -10,7 +10,7 @@
 			<li><a href="./" class="strong">首页</a></li>		
 		{/if}
 		{foreach from=$FrontTenNav item=value}
-		{if $smarty.get.id == $value->id}
+		{if $value->id == $FrontNav[0]->id}
 			<li><a href="?a=list&id={$value->id}" class="strong">{$value->name}</a></li>
 		{else}
 			<li><a href="?a=list&id={$value->id}">{$value->name}</a></li>

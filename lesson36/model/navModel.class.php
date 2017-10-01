@@ -38,19 +38,13 @@ class navModel extends Model{
     public function findFrontNav() {
 //         $_where = array("id='{$this->_R['id']}'");
 //         if(!$this->_check->oneCheck($this, $_where)) $this->_check->error('./');
-        $_allNav = $_mainNav = $_childNav = array();
+        $_allNav = $_mainNav = $_childNav = $_result = array();
         $_allNav = parent::select(array('id','name','sid'));
-        foreach ($_allNav as $_value) {
-            if($_value->sid == 0) {
-                $_mainNav[] = $_value->name;
-            } else {
-                $_childNav[] = $_value->name;
-            }
-        }
-        print_r($_mainNav);
-        print_r($_childNav);
 
+//    print_r($_result[0]);
+    return tree::getInstance()->getTree($_allNav);
     }
+
     
     
     //获取分类的子类
