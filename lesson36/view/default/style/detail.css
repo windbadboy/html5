@@ -101,84 +101,20 @@ body {
 	padding:5px 0 0 5px;
 }
 
-
-
 #main {
-	margin:10px 0 0 0;	
 	width:785px;
 	float:right;
+	margin:10px 0 0 0;
 }
 
 #main h2 {
-	height:34px;
-	line-height:34px;
-	padding: 0 0 0 25px;
-	background:url(../images/list_h2_bg.png) no-repeat left center;
-	font-size:12px;
-	color:#56A5EE;	
+	font-size:14px;
+	color:#333;
+	border-bottom:1px dashed #ccc;
+	height:20px;
 }
 
-#main div {
-	margin:0 0 10px 0;
-	border:1px solid #C5E4FF;
-	border-top:none;	
-	color:#666
-}
-
-#main div.filter p{
-	padding:10px;
-}
-
-#main div.filter p span {
-	background-color:#56A5EE;
-	padding:5px;
-}
-
-
-
-#main div.pro dl {
-	width:224px;
-	float:left;
-	margin:30px 0 0 30px;
-}
-
-#main div.pro dt {
-	width:224px;
-	height:224px;
-    border:1px solid #56A5EE;
-
-}
-
-#main div.pro dt img {
-	margin:2px 0 0 2px;
-}
-
-#main div.pro dl dd {
-	padding:8px 0 0 0;
-}
-
-#main div.pro dl dd strong {
-	font-size:16px;
-	font-family:Tahoma;
-	color:red;	
-}
-
-#main div.pro dl dd del {
-	color:#999;	
-}
-
-#main div.pro dl dd.comment {
-	text-align:center;
-}
-
-#main div.pro dl dd.comment a {
-	color:maroon;
-}
-
-#main div.pro dl dd.buy {
-	text-align:center
-}
-
-#main div.pro dl dd.buy a {
-	color:#369;
+#main dl.pic {
+	background:red;
+	width:304px;
 }

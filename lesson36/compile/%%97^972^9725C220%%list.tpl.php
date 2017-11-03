@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-28 11:11:03
+<?php /* Smarty version 2.6.25-dev, created on 2017-10-24 08:49:06
          compiled from default/public/list.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@ unset($_smarty_tpl_vars);
 <div id="sidebar">
 	<h2><?php echo $this->_tpl_vars['FrontNav'][0]->name; ?>
 </h2>
-	<ul>
+	<ul style="margin:0 0 10px 0">
 		<?php $_from = $this->_tpl_vars['FrontNav'][0]->child; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['value']):
 ?>
@@ -39,10 +39,163 @@ unset($_smarty_tpl_vars);
 <span class="gray">(1000)</span></a></li>
 		<?php endforeach; endif; unset($_from); ?>
 	</ul>
+	<h2>当月热销</h2>
+	<div style="margin:0 0 10px 0">
+		<dl style="border-top:none">
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>
+		
+		
+		<p><a href="###">查看更多</a></p>		
+	</div>
+	<h2>浏览记录</h2>
+	<div style="margin:0 0 10px 0">
+		<dl style="border-top:none">
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo_small.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price">￥158.00</dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		</dl>	
+		<p><a href="###">查看更多</a> <a href="###">清空</a></p>		
+	</div>
 </div>
 
 <div id="main">
-	main
+	<h2>商品筛选</h2>
+	<div class="filter">
+	<p>品牌: <span>全部</span> Apple 三星 华为 小米 魅族</p>
+	<p>属性: <span>全部</span> 属性1 属性2 属性3 属性4 属性5</p>
+	<p>价格: <span>全部</span> 500 - 1000 1001 - 2000 2001-3000</p>				
+	</div>
+	<h2>商品列表</h2>
+	<div class="pro">
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>
+		<dl>
+		<dt><a href="###"><img src="view/default/images/pro_list_demo.jpg" alt="连衣裙" /></a></dt>
+		<dd class="price"><strong>￥158.00</strong> <del>￥258.00</del></dd>
+		<dd class="title"><a href="###">春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</a></dd>
+		<dd class="comment"><a href="###">已有36人购买</a></dd>
+		<dd class="buy"><a href="###">购买</a> | <a href="###">收藏</a> | <a href="###">对比</a></dd>				
+		</dl>								
+	</div>
 </div>
 </body>
 </html>
