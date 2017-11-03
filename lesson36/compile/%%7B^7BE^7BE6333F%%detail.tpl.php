@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-10-24 09:55:15
+<?php /* Smarty version 2.6.25-dev, created on 2017-11-03 21:20:31
          compiled from default/public/detail.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -7,7 +7,7 @@
 	<title>在线商城系统</title>
 	<link rel="stylesheet" type="text/css" href="view/default/style/basic.css" />
 	<link rel="stylesheet" type="text/css" href="view/default/style/detail.css" />
-
+	<script type="text/javascript" src="view/default/js/channel.js"></script>
 </head>
 <body>
 
@@ -82,17 +82,40 @@ unset($_smarty_tpl_vars);
 </div>
 
 <div id="main">
-	<h2>123</h2>
+	<h2>春秋装韩版蕾丝打底长袖修身性感连衣裙品质显瘦女裙子</h2>
 	<dl class="pic">
 		<dt><a href="###"><img src="view/default/images/pro_details.jpg" alt="连衣裙" /></a></dt>
 		<dd>分享至: 微博 | 微信 | QQ </dd>
 	</dl>
 	<dl class="text">
-		<dd>1</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd>售价:￥158.00</dd>
+		<dd><img src="view/default/images/buy.gif"> <img src="view/default/images/collect.gif"></dd>														
 	</dl>
 	<div class="content">
-		123
+		<ul>
+			<li class="first" id="button1" onclick="channel(1)">商品详情</li>
+			<li id="button2" onclick="channel(2)">评价列表</li>
+			<li id="button3" onclick="channel(3)">成交记录</li>
+			<li id="button4" onclick="channel(4)">售后服务</li>
 	</div>
+	<div class="c1" id="c1" style="display:block">
+		商品详情
+	</div>
+	<div class="c2" id="c2" style="display:none">
+		评价列表
+	</div>
+	<div class="c3" id="c3" style="display:none">
+		成交记录
+	</div>
+	<div class="c4" id="c4" style="display:none">
+		售后服务
+	</div>			
 </div>
 
 </body>

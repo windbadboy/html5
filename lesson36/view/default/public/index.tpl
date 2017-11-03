@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="view/default/style/basic.css" />
 	<link rel="stylesheet" type="text/css" href="view/default/style/index.css" />
 
+
 </head>
 <body>
 {include file="default/public/header.tpl"}
