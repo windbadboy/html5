@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+dl.form select option {
+	background:#fff;
+}
+dl.form select optgroup {
+	background:#eee
+}

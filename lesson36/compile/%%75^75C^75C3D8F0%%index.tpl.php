@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-21 08:50:21
+<?php /* Smarty version 2.6.25-dev, created on 2017-11-04 07:56:30
          compiled from default/public/index.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -7,6 +7,7 @@
 	<title>在线商城系统</title>
 	<link rel="stylesheet" type="text/css" href="view/default/style/basic.css" />
 	<link rel="stylesheet" type="text/css" href="view/default/style/index.css" />
+
 
 </head>
 <body>

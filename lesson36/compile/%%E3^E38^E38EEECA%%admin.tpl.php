@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.25-dev, created on 2017-09-01 14:08:53
+<?php /* Smarty version 2.6.25-dev, created on 2017-11-04 08:08:18
          compiled from admin/public/admin.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
 	<dl style="display:block">
 		<dt>商品</dt>
 			<dd><a href="?a=nav" target="in">导航条列表</a></dd>
-			<dd><a href="###">商品2</a></dd>
+			<dd><a href="?a=goods" target="in">商品列表</a></dd>
 			<dd><a href="###">商品3</a></dd>
 	</dl>
 	<dl style="display:none">
